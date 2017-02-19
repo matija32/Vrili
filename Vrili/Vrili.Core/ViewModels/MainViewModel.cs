@@ -23,13 +23,16 @@ namespace Vrili.Core.ViewModels
             base.Start();
         }
 
+        private int count = 0;
+
         private void AddActivity()
         {
             Activities.Add(new CookingActivity
             {
-                Name = "Cook the baboon",
-                TotalTime = TimeSpan.FromSeconds(5)
+                Name = string.Format("Cook the baboon for {0}s", count),
+                TotalTime = TimeSpan.FromSeconds(count)
             });
+            count++;
         }
 
         private void StartCooking()

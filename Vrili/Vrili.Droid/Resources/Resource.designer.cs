@@ -237,11 +237,14 @@ namespace Vrili.Droid
 			// aapt resource value: 0x7f060001
 			public const int add_activity = 2131099649;
 			
-			// aapt resource value: 0x7f060002
-			public const int app_name = 2131099650;
+			// aapt resource value: 0x7f060003
+			public const int app_name = 2131099651;
 			
 			// aapt resource value: 0x7f060000
 			public const int library_name = 2131099648;
+			
+			// aapt resource value: 0x7f060002
+			public const int start_cooking = 2131099650;
 			
 			static String()
 			{
