@@ -2,5 +2,6 @@
 <resources>
 	<string name="add_activity">Add activity</string>
   <string name="start_cooking">Start cooking</string>
+  <string name="finish_cooking">Finish cooking</string>
 	<string name="app_name">Vrili.Droid</string>
 </resources>
