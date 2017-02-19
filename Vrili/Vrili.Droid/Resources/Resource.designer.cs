@@ -187,11 +187,11 @@ namespace Vrili.Droid
 			// aapt resource value: 0x7f050002
 			public const int MvxBindingTagUnique = 2131034114;
 			
+			// aapt resource value: 0x7f050003
+			public const int addActivityButton = 2131034115;
+			
 			// aapt resource value: 0x7f050000
 			public const int item_touch_helper_previous_elevation = 2131034112;
-			
-			// aapt resource value: 0x7f050003
-			public const int myButton = 2131034115;
 			
 			static Id()
 			{
@@ -225,11 +225,11 @@ namespace Vrili.Droid
 		public partial class String
 		{
 			
+			// aapt resource value: 0x7f060001
+			public const int add_activity = 2131099649;
+			
 			// aapt resource value: 0x7f060002
 			public const int app_name = 2131099650;
-			
-			// aapt resource value: 0x7f060001
-			public const int hello = 2131099649;
 			
 			// aapt resource value: 0x7f060000
 			public const int library_name = 2131099648;
