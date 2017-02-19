@@ -113,12 +113,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Vrili\Vrili.Core.csproj">
-      <Name>Vrili.Core</Name>
-      <Project>{C32C279C-3AC9-49AA-914C-599F23EE7BAD}</Project>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="DebugTrace.cs" />
     <Compile Include="LinkerPleaseInclude.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
@@ -147,6 +141,12 @@
   <ItemGroup>
     <AndroidResource Include="Resources\values\SplashStyle.xml" />
     <AndroidResource Include="Resources\drawable\splash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Vrili.Core\Vrili.Core.csproj">
+      <Project>{c32c279c-3ac9-49aa-914c-599f23ee7bad}</Project>
+      <Name>Vrili.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
 </Project>

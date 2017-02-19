@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vrili.Droid", "Vrili\Vrili.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vrili.iOS", "Vrili\Vrili.iOS\Vrili.iOS.csproj", "{C222DF4D-C6A6-4590-B6BD-89FE0FD2428E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vrili.Core", "Vrili\Vrili\Vrili.Core.csproj", "{C32C279C-3AC9-49AA-914C-599F23EE7BAD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vrili.Core", "Vrili\Vrili.Core\Vrili.Core.csproj", "{C32C279C-3AC9-49AA-914C-599F23EE7BAD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

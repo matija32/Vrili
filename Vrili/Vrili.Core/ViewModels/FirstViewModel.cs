@@ -1,6 +1,6 @@
 using MvvmCross.Core.ViewModels;
 
-namespace Vrili.ViewModels
+namespace Vrili.Core.ViewModels
 {
     public class FirstViewModel 
         : MvxViewModel
