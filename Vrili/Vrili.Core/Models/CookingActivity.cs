@@ -10,6 +10,7 @@ namespace Vrili.Models
     {
         public string Name { get; set; }
         public TimeSpan TotalTime { get; set; }
+        public TimeSpan RemainingTime { get; set; }
     }
 
     public class Cue
