@@ -29,8 +29,9 @@ namespace Vrili.Core.ViewModels
         {
             Activities.Add(new CookingActivity
             {
-                Name = string.Format("Cook the baboon for {0}s", count),
-                TotalTime = TimeSpan.FromSeconds(count)
+                Name = string.Format("Cook the baboon for {0}s. Time left: ", count),
+                TotalTime = TimeSpan.FromSeconds(count),
+                RemainingTime = TimeSpan.FromSeconds(count)
             });
             count++;
         }
