@@ -4,17 +4,17 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
-  <Button
-      android:id="@+id/addActivityButton"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:text="@string/add_activity" />
-  <MvvmCross.Droid.Support.V7.RecyclerView.MvxRecyclerView
-      android:id="@+id/activitiesListView"
-      android:scrollbars="vertical"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      local:MvxItemTemplate="@layout/ActivityListItem"
-      local:MvxBind="ItemsSource Activities" />
-
+    <Button
+        android:id="@+id/addActivityButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/add_activity"
+        local:MvxBind="Click AddActivity" />
+    <MvvmCross.Droid.Support.V7.RecyclerView.MvxRecyclerView
+        android:id="@+id/activitiesListView"
+        android:scrollbars="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        local:MvxItemTemplate="@layout/item_activity"
+        local:MvxBind="ItemsSource Activities" />
 </LinearLayout>
