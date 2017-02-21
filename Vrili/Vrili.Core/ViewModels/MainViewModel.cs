@@ -1,5 +1,7 @@
 using MvvmCross.Core.ViewModels;
 using System;
+using System.Linq;
+using System.Reactive.Linq;
 using System.Windows.Input;
 using Vrili.Models;
 
@@ -38,7 +40,7 @@ namespace Vrili.Core.ViewModels
 
         private void StartCooking()
         {
-
+            Activities.ToObservable().Subscribe(a => a.CountDown());
         }
     }
 }
