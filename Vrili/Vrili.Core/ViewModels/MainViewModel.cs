@@ -1,4 +1,5 @@
 using MvvmCross.Core.ViewModels;
+using ReactiveUI;
 using System;
 using System.Linq;
 using System.Reactive.Linq;
@@ -20,8 +21,8 @@ namespace Vrili.Core.ViewModels
 
         public override void Start()
         {
-            _addActivity = new MvxCommand(() => AddActivity());
-            _startCooking = new MvxCommand(() => StartCooking());
+            _addActivity = ReactiveCommand.Create(() => AddActivity());
+            _startCooking = ReactiveCommand.Create(() => StartCooking());
             base.Start();
         }
 
@@ -33,7 +34,7 @@ namespace Vrili.Core.ViewModels
             {
                 Name = string.Format("Cook the baboon for {0}s. Time left: ", count),
                 TotalTime = TimeSpan.FromSeconds(count),
-                RemainingTime = TimeSpan.FromSeconds(count)
+                RemainingTime = TimeSpan.FromSeconds(0)
             });
             count++;
         }

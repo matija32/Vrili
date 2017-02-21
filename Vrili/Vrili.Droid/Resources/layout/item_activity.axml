@@ -10,10 +10,17 @@
         android:layout_height="wrap_content"
         android:id="@+id/activityNameTextView"
         local:MvxBind="Text Name" />
+    <TextView
+        android:text="Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/remainingTimeTextView"
+        local:MvxBind="Text RemainingTime" />
+
   <TextView
-      android:text="Text"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:id="@+id/remainingTimeTextView"
-      local:MvxBind="Text RemainingTime" />
+        android:text="Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/isActiveTextView"
+        local:MvxBind="Text IsOngoing" />
 </LinearLayout>

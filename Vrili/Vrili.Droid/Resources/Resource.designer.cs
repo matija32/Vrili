@@ -187,14 +187,17 @@ namespace Vrili.Droid
 			// aapt resource value: 0x7f050002
 			public const int MvxBindingTagUnique = 2131034114;
 			
-			// aapt resource value: 0x7f050006
-			public const int activitiesListView = 2131034118;
+			// aapt resource value: 0x7f050007
+			public const int activitiesListView = 2131034119;
 			
 			// aapt resource value: 0x7f050003
 			public const int activityNameTextView = 2131034115;
 			
+			// aapt resource value: 0x7f050006
+			public const int addActivityButton = 2131034118;
+			
 			// aapt resource value: 0x7f050005
-			public const int addActivityButton = 2131034117;
+			public const int isActiveTextView = 2131034117;
 			
 			// aapt resource value: 0x7f050000
 			public const int item_touch_helper_previous_elevation = 2131034112;

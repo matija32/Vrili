@@ -20,18 +20,31 @@ namespace Vrili.Models
             set { this.RaiseAndSetIfChanged(ref _remainingTime, value); }
         }
 
+        ObservableAsPropertyHelper<bool> _isOngoing;
+        public bool IsOngoing
+        {
+            get { return _isOngoing.Value; }
+        } 
+
         public void CountDown()
         {
             RemainingTime = TotalTime;
             var period = TimeSpan.FromMilliseconds(100);
 
-            Observable
+            var ticker = Observable
                 .Interval(period)
-                .TakeWhile(_ => RemainingTime > period)
+                .Select(_ => RemainingTime - period)
+                .TakeWhile(newTime => newTime > TimeSpan.Zero)
                 .Subscribe(
-                    onNext: _ => RemainingTime -= period,
+                    onNext: newTime => RemainingTime = newTime,
                     onCompleted: () => RemainingTime = TimeSpan.Zero
-                ); ;
+                );
+
+            this
+                .WhenAnyValue(x => x.RemainingTime)
+                .Select(time => time > TimeSpan.Zero)
+                .ToProperty(this, x => x.IsOngoing, out _isOngoing);
+
         }
     }
 
