@@ -6,7 +6,7 @@ using System.Reactive.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Vrili.Models
+namespace Vrili.Core.Models
 {
     public class CookingActivity : ReactiveObject
     {

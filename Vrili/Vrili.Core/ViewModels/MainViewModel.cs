@@ -3,7 +3,7 @@ using System;
 using System.Linq;
 using System.Reactive.Linq;
 using System.Windows.Input;
-using Vrili.Models;
+using Vrili.Core.Models;
 using ReactiveUI;
 
 namespace Vrili.Core.ViewModels
