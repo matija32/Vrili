@@ -10,6 +10,16 @@ namespace Vrili.Models
 {
     public class CookingActivity : ReactiveObject
     {
+        public CookingActivity()
+        {
+            this
+                .WhenAnyValue(x => x.RemainingTime)
+                .Select(time => time > TimeSpan.Zero)
+                .ToProperty(this, x => x.IsOngoing, out _isOngoing);
+
+            RemainingTime = TimeSpan.Zero;
+        }
+
         public string Name { get; set; }
         public TimeSpan TotalTime { get; set; }
 
@@ -17,7 +27,7 @@ namespace Vrili.Models
         public TimeSpan RemainingTime
         {
             get { return this._remainingTime; }
-            set { this.RaiseAndSetIfChanged(ref _remainingTime, value); }
+            private set { this.RaiseAndSetIfChanged(ref _remainingTime, value); }
         }
 
         ObservableAsPropertyHelper<bool> _isOngoing;
@@ -39,18 +49,6 @@ namespace Vrili.Models
                     onNext: newTime => RemainingTime = newTime,
                     onCompleted: () => RemainingTime = TimeSpan.Zero
                 );
-
-            this
-                .WhenAnyValue(x => x.RemainingTime)
-                .Select(time => time > TimeSpan.Zero)
-                .ToProperty(this, x => x.IsOngoing, out _isOngoing);
-
         }
-    }
-
-    public class Cue
-    {
-        public string Action { get; set; }
-        public TimeSpan TimeLeft { get; set; }
     }
 }

@@ -1,10 +1,10 @@
 using MvvmCross.Core.ViewModels;
-using ReactiveUI;
 using System;
 using System.Linq;
 using System.Reactive.Linq;
 using System.Windows.Input;
 using Vrili.Models;
+using ReactiveUI;
 
 namespace Vrili.Core.ViewModels
 {
@@ -21,22 +21,37 @@ namespace Vrili.Core.ViewModels
 
         public override void Start()
         {
-            _addActivity = ReactiveCommand.Create(() => AddActivity());
+            IsCountingDown = false;
+            var canAdd = this.WhenAny(x => x.IsCountingDown, x => !x.Value);
+
+            _addActivity = ReactiveCommand.Create(() => AddActivity(), canAdd);
             _startCooking = ReactiveCommand.Create(() => StartCooking());
+            
             base.Start();
         }
 
-        private int count = 0;
+        private bool _isCountingDown;
+        public bool IsCountingDown
+        {
+            get { return this._isCountingDown; }
+            set { SetProperty(ref _isCountingDown, value); }
+        }
 
+        private int baboonCount = 0;
         private void AddActivity()
         {
-            Activities.Add(new CookingActivity
+            var activity = new CookingActivity
             {
-                Name = string.Format("Cook the baboon for {0}s. Time left: ", count),
-                TotalTime = TimeSpan.FromSeconds(count),
-                RemainingTime = TimeSpan.FromSeconds(0)
-            });
-            count++;
+                Name = string.Format("Cook the baboon for {0}s. Time left: ", baboonCount),
+                TotalTime = TimeSpan.FromSeconds(baboonCount)
+            };
+            baboonCount++;
+
+            activity
+                .WhenAny(a => a.IsOngoing, x => x)
+                .Subscribe(onNext: _ => IsCountingDown = Activities.Any(a => a.IsOngoing));
+            
+            Activities.Add(activity);
         }
 
         private void StartCooking()
