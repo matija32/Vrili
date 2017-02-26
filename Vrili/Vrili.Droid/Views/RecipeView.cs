@@ -6,7 +6,7 @@ using Vrili.Core.ViewModels;
 namespace Vrili.Droid.Views
 {
     [Activity(Label = "View for MainViewModel")]
-    public class MainView : MvxActivity<MainViewModel>
+    public class RecipeView : MvxActivity<RecipeViewModel>
     {
         protected override void OnCreate(Bundle bundle)
         {

@@ -8,7 +8,7 @@ using ReactiveUI;
 
 namespace Vrili.Core.ViewModels
 {
-    public class MainViewModel : MvxViewModel
+    public class RecipeViewModel : MvxViewModel
     {
         public MvxObservableCollection<CookingActivity> Activities { get; set; } 
             = new MvxObservableCollection<CookingActivity>();

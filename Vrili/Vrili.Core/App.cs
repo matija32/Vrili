@@ -11,7 +11,7 @@ namespace Vrili.Core
                 .AsInterfaces()
                 .RegisterAsLazySingleton();
 
-            RegisterAppStart<ViewModels.MainViewModel>();
+            RegisterAppStart<ViewModels.RecipeViewModel>();
         }
     }
 }
