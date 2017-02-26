@@ -25,7 +25,7 @@ namespace Vrili.Core.Models
 
             RemainingTime = TimeSpan.Zero;
         }
-
+        
         private TimeSpan _remainingTime;
         public TimeSpan RemainingTime
         {

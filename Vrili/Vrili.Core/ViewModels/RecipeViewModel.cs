@@ -5,6 +5,8 @@ using System.Reactive.Linq;
 using System.Windows.Input;
 using Vrili.Core.Models;
 using ReactiveUI;
+using Vrili.Core.Services;
+using System.Collections.Generic;
 
 namespace Vrili.Core.ViewModels
 {
@@ -19,15 +21,10 @@ namespace Vrili.Core.ViewModels
         private readonly ICommand _startCookingCommand;
         public ICommand StartCookingCommand { get { return _startCookingCommand; } }
 
-        public RecipeViewModel()
-        {
-            IsCountingDown = false;
+        private readonly ICommand _saveCommand;
+        public ICommand SaveCommand { get { return _saveCommand; } }
 
-            var isIdle = this.WhenAny(x => x.IsCountingDown, x => !x.Value);
-
-            _addActivityCommand = ReactiveCommand.Create(() => AddActivity(), isIdle);
-            _startCookingCommand = ReactiveCommand.Create(() => StartCooking(), isIdle);
-        }
+        private RecipeRepo _recipeRepo;
 
         private bool _isCountingDown;
         public bool IsCountingDown
@@ -35,6 +32,38 @@ namespace Vrili.Core.ViewModels
             get { return this._isCountingDown; }
             set { SetProperty(ref _isCountingDown, value); }
         }
+
+        public RecipeViewModel(RecipeRepo recipeRepo)
+        {
+            _recipeRepo = recipeRepo;
+
+            var isIdle = this.WhenAny(x => x.IsCountingDown, x => !x.Value);
+            _addActivityCommand = ReactiveCommand.Create(() => AddActivity(), isIdle);
+            _startCookingCommand = ReactiveCommand.Create(() => StartCooking(), isIdle);
+            _saveCommand = ReactiveCommand.Create(() => Save());
+        }
+
+        public void Init(IList<CookingActivity> activities)
+        {
+            Activities.AddRange(activities);
+        }
+
+        public override void Start()
+        {
+            IsCountingDown = false;
+            base.Start();
+        }
+
+        private void Save()
+        {
+            _recipeRepo.Save(new Recipe
+            {
+                Name = "Baboon cooking",
+                Activities = this.Activities.ToList()
+            });
+        }
+
+        
 
         private int baboonCount = 0;
         private void AddActivity()

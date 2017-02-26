@@ -1,21 +1,33 @@
-﻿using System;
+﻿using MvvmCross.Plugins.Sqlite;
+using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Vrili.Core.Models;
 
 namespace Vrili.Core.Services
 {
     public class SqliteRecipeRepo : RecipeRepo
     {
-        public void Load()
+        private readonly SQLiteConnection _connection;
+
+        public SqliteRecipeRepo(IMvxSqliteConnectionFactory factory)
         {
-            throw new NotImplementedException();
+            _connection = factory.GetConnection("cookbook.sql");
+            _connection.CreateTable<Recipe>();
+            _connection.CreateTable<CookingActivity>();
         }
 
-        public void Save()
+        public Recipe Get()
         {
-            throw new NotImplementedException();
+            return _connection.Table<Recipe>().FirstOrDefault();
+        }
+
+        public void Save(Recipe recipe)
+        {
+            _connection.Insert(recipe);
         }
     }
 }

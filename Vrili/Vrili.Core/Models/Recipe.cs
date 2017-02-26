@@ -1,4 +1,5 @@
 ﻿using SQLite;
+using SQLiteNetExtensions.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,8 @@ namespace Vrili.Core.Models
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
         public string Name { get; set; }
-        public IList<CookingActivity> Activities { get; } = new List<CookingActivity>();
+
+        [OneToMany]
+        public List<CookingActivity> Activities { get; set; } = new List<CookingActivity>();
     }
 }
