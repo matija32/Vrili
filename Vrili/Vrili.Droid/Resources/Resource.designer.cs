@@ -85,6 +85,8 @@ namespace Vrili.Droid
 			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Styleable.RecyclerView_reverseLayout = global::Vrili.Droid.Resource.Styleable.RecyclerView_reverseLayout;
 			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Styleable.RecyclerView_spanCount = global::Vrili.Droid.Resource.Styleable.RecyclerView_spanCount;
 			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Styleable.RecyclerView_stackFromEnd = global::Vrili.Droid.Resource.Styleable.RecyclerView_stackFromEnd;
+			global::MvvmCross.Plugins.Sqlite.Droid.Resource.String.ApplicationName = global::Vrili.Droid.Resource.String.ApplicationName;
+			global::MvvmCross.Plugins.Sqlite.Droid.Resource.String.Hello = global::Vrili.Droid.Resource.String.Hello;
 			global::Splat.Resource.String.library_name = global::Vrili.Droid.Resource.String.library_name;
 		}
 		
@@ -187,23 +189,8 @@ namespace Vrili.Droid
 			// aapt resource value: 0x7f050002
 			public const int MvxBindingTagUnique = 2131034114;
 			
-			// aapt resource value: 0x7f050007
-			public const int activitiesListView = 2131034119;
-			
-			// aapt resource value: 0x7f050003
-			public const int activityNameTextView = 2131034115;
-			
-			// aapt resource value: 0x7f050006
-			public const int addActivityButton = 2131034118;
-			
-			// aapt resource value: 0x7f050005
-			public const int isActiveTextView = 2131034117;
-			
 			// aapt resource value: 0x7f050000
 			public const int item_touch_helper_previous_elevation = 2131034112;
-			
-			// aapt resource value: 0x7f050004
-			public const int remainingTimeTextView = 2131034116;
 			
 			static Id()
 			{
@@ -240,20 +227,26 @@ namespace Vrili.Droid
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f060001
-			public const int add_activity = 2131099649;
+			// aapt resource value: 0x7f060002
+			public const int ApplicationName = 2131099650;
 			
-			// aapt resource value: 0x7f060004
-			public const int app_name = 2131099652;
+			// aapt resource value: 0x7f060001
+			public const int Hello = 2131099649;
 			
 			// aapt resource value: 0x7f060003
-			public const int finish_cooking = 2131099651;
+			public const int add_activity = 2131099651;
+			
+			// aapt resource value: 0x7f060006
+			public const int app_name = 2131099654;
+			
+			// aapt resource value: 0x7f060005
+			public const int finish_cooking = 2131099653;
 			
 			// aapt resource value: 0x7f060000
 			public const int library_name = 2131099648;
 			
-			// aapt resource value: 0x7f060002
-			public const int start_cooking = 2131099650;
+			// aapt resource value: 0x7f060004
+			public const int start_cooking = 2131099652;
 			
 			static String()
 			{
