@@ -206,10 +206,10 @@ namespace Vrili.Droid
 		{
 			
 			// aapt resource value: 0x7f030000
-			public const int item_activity = 2130903040;
+			public const int Item_CookingActivity = 2130903040;
 			
 			// aapt resource value: 0x7f030001
-			public const int MainView = 2130903041;
+			public const int RecipeView = 2130903041;
 			
 			// aapt resource value: 0x7f030002
 			public const int SplashScreen = 2130903042;
