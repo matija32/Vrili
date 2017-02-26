@@ -38,6 +38,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\RecipeRepo.cs" />
     <Compile Include="Services\SqliteRecipeRepo.cs" />
+    <Compile Include="ViewModels\CookbookViewModel.cs" />
     <Compile Include="ViewModels\RecipeViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -100,9 +101,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="ViewModels\ReactiveStuff.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
 </Project>

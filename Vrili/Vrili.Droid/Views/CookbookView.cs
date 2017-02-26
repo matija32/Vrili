@@ -5,13 +5,13 @@ using Vrili.Core.ViewModels;
 
 namespace Vrili.Droid.Views
 {
-    [Activity(Label = "RecipeView")]
-    public class RecipeView : MvxActivity<RecipeViewModel>
+    [Activity(Label = "CookbookView")]
+    public class CookbookView : MvxActivity<CookbookViewModel>
     {
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-            SetContentView(Resource.Layout.RecipeView);
+            SetContentView(Resource.Layout.CookbookView);
         }
     }
 }

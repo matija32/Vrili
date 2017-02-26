@@ -1,4 +1,5 @@
 ﻿using ReactiveUI;
+using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,11 @@ namespace Vrili.Core.Models
 {
     public class CookingActivity : ReactiveObject
     {
+        [PrimaryKey, AutoIncrement]
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public TimeSpan TotalTime { get; set; }
+
         public CookingActivity()
         {
             this
@@ -19,9 +25,6 @@ namespace Vrili.Core.Models
 
             RemainingTime = TimeSpan.Zero;
         }
-
-        public string Name { get; set; }
-        public TimeSpan TotalTime { get; set; }
 
         private TimeSpan _remainingTime;
         public TimeSpan RemainingTime

@@ -206,13 +206,16 @@ namespace Vrili.Droid
 		{
 			
 			// aapt resource value: 0x7f030000
-			public const int Item_CookingActivity = 2130903040;
+			public const int CookbookView = 2130903040;
 			
 			// aapt resource value: 0x7f030001
-			public const int RecipeView = 2130903041;
+			public const int Item_CookingActivity = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int SplashScreen = 2130903042;
+			public const int RecipeView = 2130903042;
+			
+			// aapt resource value: 0x7f030003
+			public const int SplashScreen = 2130903043;
 			
 			static Layout()
 			{
@@ -236,14 +239,17 @@ namespace Vrili.Droid
 			// aapt resource value: 0x7f060003
 			public const int add_activity = 2131099651;
 			
-			// aapt resource value: 0x7f060006
-			public const int app_name = 2131099654;
+			// aapt resource value: 0x7f060007
+			public const int app_name = 2131099655;
 			
 			// aapt resource value: 0x7f060005
 			public const int finish_cooking = 2131099653;
 			
 			// aapt resource value: 0x7f060000
 			public const int library_name = 2131099648;
+			
+			// aapt resource value: 0x7f060006
+			public const int set_up_recipe = 2131099654;
 			
 			// aapt resource value: 0x7f060004
 			public const int start_cooking = 2131099652;
