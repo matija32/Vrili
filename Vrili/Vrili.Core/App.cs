@@ -7,7 +7,7 @@ namespace Vrili.Core
         public override void Initialize()
         {
             CreatableTypes()
-                .EndingWith("Service")
+                .InNamespace("Vrili.Core.Services")
                 .AsInterfaces()
                 .RegisterAsLazySingleton();
 
