@@ -4,5 +4,6 @@
   <string name="start_cooking">Start cooking</string>
   <string name="finish_cooking">Finish cooking</string>
   <string name="set_up_recipe">Set up recipe</string>
+  <string name="open_recipe">Open recipe</string>
 	<string name="app_name">Vrili.Droid</string>
 </resources>

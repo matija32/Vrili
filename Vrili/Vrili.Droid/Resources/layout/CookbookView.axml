@@ -9,4 +9,9 @@
         android:layout_height="wrap_content"
         android:text="@string/set_up_recipe"
         local:MvxBind="Click SetUpRecipeCommand" />
+  <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/open_recipe"
+        local:MvxBind="Click OpenRecipeCommand" />
 </LinearLayout>

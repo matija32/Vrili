@@ -13,21 +13,20 @@ namespace Vrili.Core.ViewModels
         public MvxObservableCollection<CookingActivity> Activities { get; set; } 
             = new MvxObservableCollection<CookingActivity>();
 
-        private ICommand _addActivityCommand;
+        private readonly ICommand _addActivityCommand;
         public ICommand AddActivityCommand { get { return _addActivityCommand; } }
 
-        private ICommand _startCookingCommand;
+        private readonly ICommand _startCookingCommand;
         public ICommand StartCookingCommand { get { return _startCookingCommand; } }
 
-        public override void Start()
+        public RecipeViewModel()
         {
             IsCountingDown = false;
-            var canAdd = this.WhenAny(x => x.IsCountingDown, x => !x.Value);
 
-            _addActivityCommand = ReactiveCommand.Create(() => AddActivity(), canAdd);
-            _startCookingCommand = ReactiveCommand.Create(() => StartCooking());
-            
-            base.Start();
+            var isIdle = this.WhenAny(x => x.IsCountingDown, x => !x.Value);
+
+            _addActivityCommand = ReactiveCommand.Create(() => AddActivity(), isIdle);
+            _startCookingCommand = ReactiveCommand.Create(() => StartCooking(), isIdle);
         }
 
         private bool _isCountingDown;
