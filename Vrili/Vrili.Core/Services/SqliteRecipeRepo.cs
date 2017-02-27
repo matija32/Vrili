@@ -15,9 +15,15 @@ namespace Vrili.Core.Services
 
         public SqliteRecipeRepo(IMvxSqliteConnectionFactory factory)
         {
-            _connection = factory.GetConnection("cookbook.sql");
-            _connection.CreateTable<Recipe>();
-            _connection.CreateTable<CookingActivity>();
+            try {
+                _connection = factory.GetConnection("cookbook.sql");
+                _connection.CreateTable<Recipe>();
+                _connection.CreateTable<CookingActivity>();
+            }
+            catch(Exception e)
+            {
+                e.ToString();
+            }
         }
 
         public Recipe Get()
