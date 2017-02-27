@@ -50,6 +50,8 @@ namespace Vrili.Droid
 			global::MvvmCross.Plugins.Sqlite.Droid.Resource.String.ApplicationName = global::Vrili.Droid.Resource.String.ApplicationName;
 			global::MvvmCross.Plugins.Sqlite.Droid.Resource.String.Hello = global::Vrili.Droid.Resource.String.Hello;
 			global::Splat.Resource.String.library_name = global::Vrili.Droid.Resource.String.library_name;
+			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.ApplicationName = global::Vrili.Droid.Resource.String.ApplicationName;
+			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.Hello = global::Vrili.Droid.Resource.String.Hello;
 		}
 		
 		public partial class Attribute
@@ -152,26 +154,29 @@ namespace Vrili.Droid
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f040002
-			public const int ApplicationName = 2130968578;
-			
 			// aapt resource value: 0x7f040001
-			public const int Hello = 2130968577;
+			public const int ApplicationName = 2130968577;
+			
+			// aapt resource value: 0x7f040000
+			public const int Hello = 2130968576;
 			
 			// aapt resource value: 0x7f040003
 			public const int add_activity = 2130968579;
 			
-			// aapt resource value: 0x7f040008
-			public const int app_name = 2130968584;
+			// aapt resource value: 0x7f040009
+			public const int app_name = 2130968585;
 			
 			// aapt resource value: 0x7f040005
 			public const int finish_cooking = 2130968581;
 			
-			// aapt resource value: 0x7f040000
-			public const int library_name = 2130968576;
+			// aapt resource value: 0x7f040002
+			public const int library_name = 2130968578;
 			
 			// aapt resource value: 0x7f040007
 			public const int open_recipe = 2130968583;
+			
+			// aapt resource value: 0x7f040008
+			public const int save_recipe = 2130968584;
 			
 			// aapt resource value: 0x7f040006
 			public const int set_up_recipe = 2130968582;

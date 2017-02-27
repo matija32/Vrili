@@ -11,15 +11,8 @@ namespace Vrili.Droid.Views
     {
         protected override void OnCreate(Bundle bundle)
         {
-            try
-            {
-                base.OnCreate(bundle);
-                SetContentView(Resource.Layout.CookbookView);
-            }
-            catch(Exception e)
-            {
-                e.ToString();
-            }
+            base.OnCreate(bundle);
+            SetContentView(Resource.Layout.CookbookView);
         }
     }
 }

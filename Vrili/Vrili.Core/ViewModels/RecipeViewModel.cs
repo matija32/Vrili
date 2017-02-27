@@ -43,8 +43,9 @@ namespace Vrili.Core.ViewModels
             _saveCommand = ReactiveCommand.Create(() => Save());
         }
 
-        public void Init(IList<CookingActivity> activities)
+        public void Init(List<CookingActivity> activities)
         {
+            activities = activities ?? new List<CookingActivity>();
             Activities.AddRange(activities);
         }
 

@@ -1,5 +1,6 @@
 ﻿using MvvmCross.Plugins.Sqlite;
 using SQLite;
+using SQLiteNetExtensions.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,25 +16,19 @@ namespace Vrili.Core.Services
 
         public SqliteRecipeRepo(IMvxSqliteConnectionFactory factory)
         {
-            try {
-                _connection = factory.GetConnection("cookbook.sql");
-                _connection.CreateTable<Recipe>();
-                _connection.CreateTable<CookingActivity>();
-            }
-            catch(Exception e)
-            {
-                e.ToString();
-            }
+            _connection = factory.GetConnection("cookbook.sql");
+            _connection.CreateTable<Recipe>();
+            _connection.CreateTable<CookingActivity>();
         }
 
         public Recipe Get()
         {
-            return _connection.Table<Recipe>().FirstOrDefault();
+            return _connection.GetWithChildren<Recipe>(26);
         }
 
         public void Save(Recipe recipe)
         {
-            _connection.Insert(recipe);
+            _connection.InsertWithChildren(recipe);
         }
     }
 }

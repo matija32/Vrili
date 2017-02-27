@@ -17,7 +17,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/start_cooking"
+        android:text="@string/save_recipe"
         local:MvxBind="Click SaveCommand" />
     <Mvx.MvxListView
         android:scrollbars="vertical"

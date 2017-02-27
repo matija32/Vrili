@@ -1,5 +1,6 @@
 ﻿using ReactiveUI;
 using SQLite;
+using SQLiteNetExtensions.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +10,14 @@ using System.Threading.Tasks;
 
 namespace Vrili.Core.Models
 {
+    [Table("CookingActivity")]
     public class CookingActivity : ReactiveObject
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
+
+        [ForeignKey(typeof(Recipe))]
+        public int RecipeId { get; set; }
         public string Name { get; set; }
         public TimeSpan TotalTime { get; set; }
 
