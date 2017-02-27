@@ -47,44 +47,6 @@ namespace Vrili.Droid
 			global::MvvmCross.Binding.Droid.Resource.Styleable.MvxListView = global::Vrili.Droid.Resource.Styleable.MvxListView;
 			global::MvvmCross.Binding.Droid.Resource.Styleable.MvxListView_MvxDropDownItemTemplate = global::Vrili.Droid.Resource.Styleable.MvxListView_MvxDropDownItemTemplate;
 			global::MvvmCross.Binding.Droid.Resource.Styleable.MvxListView_MvxItemTemplate = global::Vrili.Droid.Resource.Styleable.MvxListView_MvxItemTemplate;
-			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Attribute.MvxBind = global::Vrili.Droid.Resource.Attribute.MvxBind;
-			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Attribute.MvxDropDownItemTemplate = global::Vrili.Droid.Resource.Attribute.MvxDropDownItemTemplate;
-			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Attribute.MvxGroupItemTemplate = global::Vrili.Droid.Resource.Attribute.MvxGroupItemTemplate;
-			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Attribute.MvxItemTemplate = global::Vrili.Droid.Resource.Attribute.MvxItemTemplate;
-			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Attribute.MvxLang = global::Vrili.Droid.Resource.Attribute.MvxLang;
-			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Attribute.MvxSource = global::Vrili.Droid.Resource.Attribute.MvxSource;
-			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Attribute.MvxTemplate = global::Vrili.Droid.Resource.Attribute.MvxTemplate;
-			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Attribute.MvxTemplateSelector = global::Vrili.Droid.Resource.Attribute.MvxTemplateSelector;
-			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Attribute.layoutManager = global::Vrili.Droid.Resource.Attribute.layoutManager;
-			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Attribute.reverseLayout = global::Vrili.Droid.Resource.Attribute.reverseLayout;
-			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Attribute.spanCount = global::Vrili.Droid.Resource.Attribute.spanCount;
-			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Attribute.stackFromEnd = global::Vrili.Droid.Resource.Attribute.stackFromEnd;
-			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Dimension.item_touch_helper_max_drag_scroll_per_frame = global::Vrili.Droid.Resource.Dimension.item_touch_helper_max_drag_scroll_per_frame;
-			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Dimension.item_touch_helper_swipe_escape_max_velocity = global::Vrili.Droid.Resource.Dimension.item_touch_helper_swipe_escape_max_velocity;
-			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Dimension.item_touch_helper_swipe_escape_velocity = global::Vrili.Droid.Resource.Dimension.item_touch_helper_swipe_escape_velocity;
-			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Id.MvvmCrossTagId = global::Vrili.Droid.Resource.Id.MvvmCrossTagId;
-			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Id.MvxBindingTagUnique = global::Vrili.Droid.Resource.Id.MvxBindingTagUnique;
-			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Id.item_touch_helper_previous_elevation = global::Vrili.Droid.Resource.Id.item_touch_helper_previous_elevation;
-			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Styleable.MvxBinding = global::Vrili.Droid.Resource.Styleable.MvxBinding;
-			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Styleable.MvxBinding_MvxBind = global::Vrili.Droid.Resource.Styleable.MvxBinding_MvxBind;
-			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Styleable.MvxBinding_MvxLang = global::Vrili.Droid.Resource.Styleable.MvxBinding_MvxLang;
-			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Styleable.MvxControl = global::Vrili.Droid.Resource.Styleable.MvxControl;
-			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Styleable.MvxControl_MvxTemplate = global::Vrili.Droid.Resource.Styleable.MvxControl_MvxTemplate;
-			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Styleable.MvxExpandableListView = global::Vrili.Droid.Resource.Styleable.MvxExpandableListView;
-			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Styleable.MvxExpandableListView_MvxGroupItemTemplate = global::Vrili.Droid.Resource.Styleable.MvxExpandableListView_MvxGroupItemTemplate;
-			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Styleable.MvxImageView = global::Vrili.Droid.Resource.Styleable.MvxImageView;
-			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Styleable.MvxImageView_MvxSource = global::Vrili.Droid.Resource.Styleable.MvxImageView_MvxSource;
-			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Styleable.MvxListView = global::Vrili.Droid.Resource.Styleable.MvxListView;
-			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Styleable.MvxListView_MvxDropDownItemTemplate = global::Vrili.Droid.Resource.Styleable.MvxListView_MvxDropDownItemTemplate;
-			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Styleable.MvxListView_MvxItemTemplate = global::Vrili.Droid.Resource.Styleable.MvxListView_MvxItemTemplate;
-			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Styleable.MvxRecyclerView = global::Vrili.Droid.Resource.Styleable.MvxRecyclerView;
-			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Styleable.MvxRecyclerView_MvxTemplateSelector = global::Vrili.Droid.Resource.Styleable.MvxRecyclerView_MvxTemplateSelector;
-			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Styleable.RecyclerView = global::Vrili.Droid.Resource.Styleable.RecyclerView;
-			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Styleable.RecyclerView_android_orientation = global::Vrili.Droid.Resource.Styleable.RecyclerView_android_orientation;
-			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Styleable.RecyclerView_layoutManager = global::Vrili.Droid.Resource.Styleable.RecyclerView_layoutManager;
-			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Styleable.RecyclerView_reverseLayout = global::Vrili.Droid.Resource.Styleable.RecyclerView_reverseLayout;
-			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Styleable.RecyclerView_spanCount = global::Vrili.Droid.Resource.Styleable.RecyclerView_spanCount;
-			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Styleable.RecyclerView_stackFromEnd = global::Vrili.Droid.Resource.Styleable.RecyclerView_stackFromEnd;
 			global::MvvmCross.Plugins.Sqlite.Droid.Resource.String.ApplicationName = global::Vrili.Droid.Resource.String.ApplicationName;
 			global::MvvmCross.Plugins.Sqlite.Droid.Resource.String.Hello = global::Vrili.Droid.Resource.String.Hello;
 			global::Splat.Resource.String.library_name = global::Vrili.Droid.Resource.String.library_name;
@@ -93,41 +55,26 @@ namespace Vrili.Droid
 		public partial class Attribute
 		{
 			
-			// aapt resource value: 0x7f010005
-			public const int MvxBind = 2130771973;
-			
-			// aapt resource value: 0x7f010009
-			public const int MvxDropDownItemTemplate = 2130771977;
-			
-			// aapt resource value: 0x7f01000a
-			public const int MvxGroupItemTemplate = 2130771978;
-			
-			// aapt resource value: 0x7f010008
-			public const int MvxItemTemplate = 2130771976;
-			
-			// aapt resource value: 0x7f010006
-			public const int MvxLang = 2130771974;
-			
-			// aapt resource value: 0x7f01000b
-			public const int MvxSource = 2130771979;
-			
-			// aapt resource value: 0x7f010007
-			public const int MvxTemplate = 2130771975;
+			// aapt resource value: 0x7f010000
+			public const int MvxBind = 2130771968;
 			
 			// aapt resource value: 0x7f010004
-			public const int MvxTemplateSelector = 2130771972;
+			public const int MvxDropDownItemTemplate = 2130771972;
 			
-			// aapt resource value: 0x7f010000
-			public const int layoutManager = 2130771968;
-			
-			// aapt resource value: 0x7f010002
-			public const int reverseLayout = 2130771970;
-			
-			// aapt resource value: 0x7f010001
-			public const int spanCount = 2130771969;
+			// aapt resource value: 0x7f010005
+			public const int MvxGroupItemTemplate = 2130771973;
 			
 			// aapt resource value: 0x7f010003
-			public const int stackFromEnd = 2130771971;
+			public const int MvxItemTemplate = 2130771971;
+			
+			// aapt resource value: 0x7f010001
+			public const int MvxLang = 2130771969;
+			
+			// aapt resource value: 0x7f010006
+			public const int MvxSource = 2130771974;
+			
+			// aapt resource value: 0x7f010002
+			public const int MvxTemplate = 2130771970;
 			
 			static Attribute()
 			{
@@ -135,28 +82,6 @@ namespace Vrili.Droid
 			}
 			
 			private Attribute()
-			{
-			}
-		}
-		
-		public partial class Dimension
-		{
-			
-			// aapt resource value: 0x7f040000
-			public const int item_touch_helper_max_drag_scroll_per_frame = 2130968576;
-			
-			// aapt resource value: 0x7f040001
-			public const int item_touch_helper_swipe_escape_max_velocity = 2130968577;
-			
-			// aapt resource value: 0x7f040002
-			public const int item_touch_helper_swipe_escape_velocity = 2130968578;
-			
-			static Dimension()
-			{
-				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
-			}
-			
-			private Dimension()
 			{
 			}
 		}
@@ -183,14 +108,11 @@ namespace Vrili.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f050001
-			public const int MvvmCrossTagId = 2131034113;
-			
-			// aapt resource value: 0x7f050002
-			public const int MvxBindingTagUnique = 2131034114;
-			
 			// aapt resource value: 0x7f050000
-			public const int item_touch_helper_previous_elevation = 2131034112;
+			public const int MvvmCrossTagId = 2131034112;
+			
+			// aapt resource value: 0x7f050001
+			public const int MvxBindingTagUnique = 2131034113;
 			
 			static Id()
 			{
@@ -230,32 +152,32 @@ namespace Vrili.Droid
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f060002
-			public const int ApplicationName = 2131099650;
+			// aapt resource value: 0x7f040002
+			public const int ApplicationName = 2130968578;
 			
-			// aapt resource value: 0x7f060001
-			public const int Hello = 2131099649;
+			// aapt resource value: 0x7f040001
+			public const int Hello = 2130968577;
 			
-			// aapt resource value: 0x7f060003
-			public const int add_activity = 2131099651;
+			// aapt resource value: 0x7f040003
+			public const int add_activity = 2130968579;
 			
-			// aapt resource value: 0x7f060008
-			public const int app_name = 2131099656;
+			// aapt resource value: 0x7f040008
+			public const int app_name = 2130968584;
 			
-			// aapt resource value: 0x7f060005
-			public const int finish_cooking = 2131099653;
+			// aapt resource value: 0x7f040005
+			public const int finish_cooking = 2130968581;
 			
-			// aapt resource value: 0x7f060000
-			public const int library_name = 2131099648;
+			// aapt resource value: 0x7f040000
+			public const int library_name = 2130968576;
 			
-			// aapt resource value: 0x7f060007
-			public const int open_recipe = 2131099655;
+			// aapt resource value: 0x7f040007
+			public const int open_recipe = 2130968583;
 			
-			// aapt resource value: 0x7f060006
-			public const int set_up_recipe = 2131099654;
+			// aapt resource value: 0x7f040006
+			public const int set_up_recipe = 2130968582;
 			
-			// aapt resource value: 0x7f060004
-			public const int start_cooking = 2131099652;
+			// aapt resource value: 0x7f040004
+			public const int start_cooking = 2130968580;
 			
 			static String()
 			{
@@ -270,8 +192,8 @@ namespace Vrili.Droid
 		public partial class Style
 		{
 			
-			// aapt resource value: 0x7f070000
-			public const int Theme_Splash = 2131165184;
+			// aapt resource value: 0x7f060000
+			public const int Theme_Splash = 2131099648;
 			
 			static Style()
 			{
@@ -287,8 +209,8 @@ namespace Vrili.Droid
 		{
 			
 			public static int[] MvxBinding = new int[] {
-					2130771973,
-					2130771974};
+					2130771968,
+					2130771969};
 			
 			// aapt resource value: 0
 			public const int MvxBinding_MvxBind = 0;
@@ -297,60 +219,32 @@ namespace Vrili.Droid
 			public const int MvxBinding_MvxLang = 1;
 			
 			public static int[] MvxControl = new int[] {
-					2130771975};
+					2130771970};
 			
 			// aapt resource value: 0
 			public const int MvxControl_MvxTemplate = 0;
 			
 			public static int[] MvxExpandableListView = new int[] {
-					2130771978};
+					2130771973};
 			
 			// aapt resource value: 0
 			public const int MvxExpandableListView_MvxGroupItemTemplate = 0;
 			
 			public static int[] MvxImageView = new int[] {
-					2130771979};
+					2130771974};
 			
 			// aapt resource value: 0
 			public const int MvxImageView_MvxSource = 0;
 			
 			public static int[] MvxListView = new int[] {
-					2130771976,
-					2130771977};
+					2130771971,
+					2130771972};
 			
 			// aapt resource value: 1
 			public const int MvxListView_MvxDropDownItemTemplate = 1;
 			
 			// aapt resource value: 0
 			public const int MvxListView_MvxItemTemplate = 0;
-			
-			public static int[] MvxRecyclerView = new int[] {
-					2130771972};
-			
-			// aapt resource value: 0
-			public const int MvxRecyclerView_MvxTemplateSelector = 0;
-			
-			public static int[] RecyclerView = new int[] {
-					16842948,
-					2130771968,
-					2130771969,
-					2130771970,
-					2130771971};
-			
-			// aapt resource value: 0
-			public const int RecyclerView_android_orientation = 0;
-			
-			// aapt resource value: 1
-			public const int RecyclerView_layoutManager = 1;
-			
-			// aapt resource value: 3
-			public const int RecyclerView_reverseLayout = 3;
-			
-			// aapt resource value: 2
-			public const int RecyclerView_spanCount = 2;
-			
-			// aapt resource value: 4
-			public const int RecyclerView_stackFromEnd = 4;
 			
 			static Styleable()
 			{
