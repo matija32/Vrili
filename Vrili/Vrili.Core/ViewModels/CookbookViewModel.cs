@@ -37,10 +37,7 @@ namespace Vrili.Core.ViewModels
         private void OpenRecipe()
         {
             var recipe = _recipeRepo.Get();
-            ShowViewModel<RecipeViewModel>(new
-            {
-                Activities = recipe.Activities
-            });
+            ShowViewModel<RecipeViewModel>(recipe.Activities);
         }
     }
 }

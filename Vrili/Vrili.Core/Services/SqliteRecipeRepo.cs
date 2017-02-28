@@ -23,7 +23,7 @@ namespace Vrili.Core.Services
 
         public Recipe Get()
         {
-            return _connection.GetWithChildren<Recipe>(26);
+            return _connection.GetWithChildren<Recipe>(73);
         }
 
         public void Save(Recipe recipe)

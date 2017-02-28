@@ -12,7 +12,7 @@ namespace Vrili.Core.ViewModels
 {
     public class RecipeViewModel : MvxViewModel
     {
-        public MvxObservableCollection<CookingActivity> Activities { get; set; } 
+        public MvxObservableCollection<CookingActivity> Activities { get; private set; }
             = new MvxObservableCollection<CookingActivity>();
 
         private readonly ICommand _addActivityCommand;
