@@ -19,12 +19,8 @@ namespace Vrili.Core.ViewModels
         private readonly ICommand _openRecipeCommand;
         public ICommand OpenRecipeCommand { get { return _openRecipeCommand; } }
 
-        private readonly RecipeRepo _recipeRepo;
-
-        public CookbookViewModel() : this(Mvx.Resolve<RecipeRepo>()) { }
-        public CookbookViewModel(RecipeRepo recipeRepo)
+        public CookbookViewModel()
         {
-            _recipeRepo = recipeRepo;
             _setUpRecipeCommand = ReactiveCommand.Create(() => SetUpRecipe());
             _openRecipeCommand = ReactiveCommand.Create(() => OpenRecipe());
         }
@@ -36,8 +32,7 @@ namespace Vrili.Core.ViewModels
 
         private void OpenRecipe()
         {
-            var recipe = _recipeRepo.Get();
-            ShowViewModel<RecipeViewModel>(recipe.Activities);
+            ShowViewModel<RecipeViewModel>(new { recipeId = 73 });
         }
     }
 }

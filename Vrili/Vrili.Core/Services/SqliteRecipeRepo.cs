@@ -21,9 +21,9 @@ namespace Vrili.Core.Services
             _connection.CreateTable<CookingActivity>();
         }
 
-        public Recipe Get()
+        public Recipe Get(int recipeId)
         {
-            return _connection.GetWithChildren<Recipe>(73);
+            return _connection.GetWithChildren<Recipe>(recipeId);
         }
 
         public void Save(Recipe recipe)

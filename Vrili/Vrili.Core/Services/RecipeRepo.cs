@@ -10,6 +10,6 @@ namespace Vrili.Core.Services
     public interface RecipeRepo
     {
         void Save(Recipe recipe);
-        Recipe Get();
+        Recipe Get(int recipeId);
     }
 }

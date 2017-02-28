@@ -43,10 +43,10 @@ namespace Vrili.Core.ViewModels
             _saveCommand = ReactiveCommand.Create(() => Save());
         }
 
-        public void Init(List<CookingActivity> activities)
+        public void Init(int recipeId)
         {
-            activities = activities ?? new List<CookingActivity>();
-            Activities.AddRange(activities);
+            var recipe = _recipeRepo.Get(recipeId);
+            Activities.AddRange(recipe.Activities);
         }
 
         public override void Start()
@@ -63,8 +63,6 @@ namespace Vrili.Core.ViewModels
                 Activities = this.Activities.ToList()
             });
         }
-
-        
 
         private int baboonCount = 0;
         private void AddActivity()
