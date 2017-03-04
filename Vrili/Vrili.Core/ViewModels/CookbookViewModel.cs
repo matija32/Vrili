@@ -32,7 +32,7 @@ namespace Vrili.Core.ViewModels
 
         private void OpenRecipe()
         {
-            ShowViewModel<RecipeViewModel>(new { recipeId = 73 });
+            ShowViewModel<RecipeViewModel>(new { loadRecipe = true });
         }
     }
 }

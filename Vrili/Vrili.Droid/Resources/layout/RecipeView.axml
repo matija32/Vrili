@@ -19,6 +19,11 @@
         android:layout_height="wrap_content"
         android:text="@string/save_recipe"
         local:MvxBind="Click SaveCommand" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/share_recipe"
+        local:MvxBind="Click ShareCommand" />
     <Mvx.MvxListView
         android:scrollbars="vertical"
         android:layout_width="match_parent"

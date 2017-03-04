@@ -163,8 +163,8 @@ namespace Vrili.Droid
 			// aapt resource value: 0x7f040003
 			public const int add_activity = 2130968579;
 			
-			// aapt resource value: 0x7f040009
-			public const int app_name = 2130968585;
+			// aapt resource value: 0x7f04000a
+			public const int app_name = 2130968586;
 			
 			// aapt resource value: 0x7f040005
 			public const int finish_cooking = 2130968581;
@@ -180,6 +180,9 @@ namespace Vrili.Droid
 			
 			// aapt resource value: 0x7f040006
 			public const int set_up_recipe = 2130968582;
+			
+			// aapt resource value: 0x7f040009
+			public const int share_recipe = 2130968585;
 			
 			// aapt resource value: 0x7f040004
 			public const int start_cooking = 2130968580;

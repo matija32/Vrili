@@ -10,7 +10,7 @@ using Vrili.Core.Models;
 
 namespace Vrili.Core.Services
 {
-    public class SqliteRecipeRepo : RecipeRepo
+    public class SqliteRecipeRepo : IRecipeRepo
     {
         private readonly SQLiteConnection _connection;
 
@@ -19,6 +19,13 @@ namespace Vrili.Core.Services
             _connection = factory.GetConnection("cookbook.sql");
             _connection.CreateTable<Recipe>();
             _connection.CreateTable<CookingActivity>();
+        }
+        
+        public int FindRecipeWithActivities()
+        {
+            return (from recipe in _connection.Table<Recipe>()
+                    where recipe.Activities.Count > 0
+                    select recipe.Id).First();
         }
 
         public Recipe Get(int recipeId)

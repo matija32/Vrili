@@ -7,6 +7,9 @@ using Vrili.Core.Models;
 using ReactiveUI;
 using Vrili.Core.Services;
 using System.Collections.Generic;
+using MvvmCross.Plugins.Share;
+using MvvmCross.Platform;
+using Teddy.MvvmCross.Plugins.SimpleAudioPlayer;
 
 namespace Vrili.Core.ViewModels
 {
@@ -24,7 +27,12 @@ namespace Vrili.Core.ViewModels
         private readonly ICommand _saveCommand;
         public ICommand SaveCommand { get { return _saveCommand; } }
 
-        private RecipeRepo _recipeRepo;
+        private readonly ICommand _shareCommand;
+        public ICommand ShareCommand { get { return _shareCommand; } }
+
+        private int baboonCount = 0;
+        private IRecipeRepo _recipeRepo;
+        private IMvxSimpleAudioPlayer _audioPlayer;
 
         private bool _isCountingDown;
         public bool IsCountingDown
@@ -33,26 +41,40 @@ namespace Vrili.Core.ViewModels
             set { SetProperty(ref _isCountingDown, value); }
         }
 
-        public RecipeViewModel(RecipeRepo recipeRepo)
+        public RecipeViewModel(
+              IRecipeRepo recipeRepo
+            , IMvxSimpleAudioPlayer audioPlayer)
         {
             _recipeRepo = recipeRepo;
+            _audioPlayer = audioPlayer;
 
             var isIdle = this.WhenAny(x => x.IsCountingDown, x => !x.Value);
             _addActivityCommand = ReactiveCommand.Create(() => AddActivity(), isIdle);
             _startCookingCommand = ReactiveCommand.Create(() => StartCooking(), isIdle);
             _saveCommand = ReactiveCommand.Create(() => Save());
+            _shareCommand = ReactiveCommand.Create(() => Share());
         }
 
-        public void Init(int recipeId)
+        public void Init(bool loadRecipe)
         {
-            var recipe = _recipeRepo.Get(recipeId);
-            Activities.AddRange(recipe.Activities);
+            if (loadRecipe)
+            {
+                var recipeId = _recipeRepo.FindRecipeWithActivities();
+                var recipe = _recipeRepo.Get(recipeId);
+                Activities.AddRange(recipe.Activities);
+            }
         }
 
         public override void Start()
         {
             IsCountingDown = false;
             base.Start();
+        }
+
+        private void Share()
+        {
+            var service = Mvx.Resolve<IMvxShareTask>();
+            service.ShareLink("Baboon cooking", "Checkout my recipe!", "vrili.com/baboon-cooking");
         }
 
         private void Save()
@@ -64,7 +86,6 @@ namespace Vrili.Core.ViewModels
             });
         }
 
-        private int baboonCount = 0;
         private void AddActivity()
         {
             var activity = new CookingActivity

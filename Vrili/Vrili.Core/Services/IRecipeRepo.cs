@@ -7,8 +7,9 @@ using Vrili.Core.Models;
 
 namespace Vrili.Core.Services
 {
-    public interface RecipeRepo
+    public interface IRecipeRepo
     {
+        int FindRecipeWithActivities();
         void Save(Recipe recipe);
         Recipe Get(int recipeId);
     }

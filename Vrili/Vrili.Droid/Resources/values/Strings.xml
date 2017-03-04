@@ -6,5 +6,6 @@
   <string name="set_up_recipe">Set up recipe</string>
   <string name="open_recipe">Open recipe</string>
   <string name="save_recipe">Save recipe</string>
+  <string name="share_recipe">Share recipe</string>
 	<string name="app_name">Vrili.Droid</string>
 </resources>
