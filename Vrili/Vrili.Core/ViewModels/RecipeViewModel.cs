@@ -11,6 +11,7 @@ using MvvmCross.Plugins.Share;
 using MvvmCross.Platform;
 using Teddy.MvvmCross.Plugins.SimpleAudioPlayer;
 
+
 namespace Vrili.Core.ViewModels
 {
     public class RecipeViewModel : MvxViewModel
@@ -104,7 +105,10 @@ namespace Vrili.Core.ViewModels
 
         private void StartCooking()
         {
+            _audioPlayer.Open("alarm_clock.mp3");
+            _audioPlayer.Volume = 1;
+            _audioPlayer.Play();
             Activities.ToObservable().Subscribe(a => a.CountDown());
-        }
+        } 
     }
 }
