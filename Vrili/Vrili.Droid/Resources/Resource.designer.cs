@@ -88,6 +88,43 @@ namespace Vrili.Droid
 			}
 		}
 		
+		public partial class Color
+		{
+			
+			// aapt resource value: 0x7f060003
+			public const int accent = 2131099651;
+			
+			// aapt resource value: 0x7f060007
+			public const int divider = 2131099655;
+			
+			// aapt resource value: 0x7f060006
+			public const int icons = 2131099654;
+			
+			// aapt resource value: 0x7f060000
+			public const int primary = 2131099648;
+			
+			// aapt resource value: 0x7f060001
+			public const int primary_dark = 2131099649;
+			
+			// aapt resource value: 0x7f060002
+			public const int primary_light = 2131099650;
+			
+			// aapt resource value: 0x7f060004
+			public const int primary_text = 2131099652;
+			
+			// aapt resource value: 0x7f060005
+			public const int secondary_text = 2131099653;
+			
+			static Color()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Color()
+			{
+			}
+		}
+		
 		public partial class Drawable
 		{
 			
@@ -200,8 +237,17 @@ namespace Vrili.Droid
 		public partial class Style
 		{
 			
-			// aapt resource value: 0x7f060000
-			public const int Theme_Splash = 2131099648;
+			// aapt resource value: 0x7f070003
+			public const int ButtonStyle = 2131165187;
+			
+			// aapt resource value: 0x7f070002
+			public const int ListViewStyle = 2131165186;
+			
+			// aapt resource value: 0x7f070001
+			public const int MyCustomTheme = 2131165185;
+			
+			// aapt resource value: 0x7f070000
+			public const int Theme_Splash = 2131165184;
 			
 			static Style()
 			{

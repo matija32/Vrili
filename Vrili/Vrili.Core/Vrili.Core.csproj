@@ -123,7 +123,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Teddy.MvvmCross.Plugins.SimpleAudioPlayer, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Teddy.MvvmCross.Plugin.SimpleAudioPlayer.1.0.6\lib\portable-net45+win+wpa81+wp80\Teddy.MvvmCross.Plugins.SimpleAudioPlayer.dll</HintPath>
+      <HintPath>..\..\packages\Teddy.MvvmCross.Plugin.SimpleAudioPlayer.1.0.7\lib\portable-net45+win+wpa81+wp80\Teddy.MvvmCross.Plugins.SimpleAudioPlayer.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>

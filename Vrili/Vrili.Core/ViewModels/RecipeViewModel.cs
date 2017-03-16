@@ -14,6 +14,7 @@ using Teddy.MvvmCross.Plugins.SimpleAudioPlayer;
 
 namespace Vrili.Core.ViewModels
 {
+
     public class RecipeViewModel : MvxViewModel
     {
         public MvxObservableCollection<CookingActivity> Activities { get; private set; }
