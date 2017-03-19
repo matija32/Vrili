@@ -2,6 +2,8 @@ using Android.Content;
 using MvvmCross.Droid.Platform;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Platform.Platform;
+using System.Reflection;
+using System.Collections.Generic;
 
 namespace Vrili.Droid
 {
@@ -19,6 +21,18 @@ namespace Vrili.Droid
         protected override IMvxTrace CreateDebugTrace()
         {
             return new DebugTrace();
+        }
+
+        protected override IEnumerable<Assembly> AndroidViewAssemblies
+        {
+            get
+            {
+                var assemblies = base.AndroidViewAssemblies;
+                List<Assembly> extendedAssemblies = new List<Assembly>(assemblies);
+                extendedAssemblies.Add(typeof(Android.Support.Design.Widget.FloatingActionButton).Assembly);
+                extendedAssemblies.Add(typeof(Android.Support.Design.Widget.CoordinatorLayout).Assembly);
+                return extendedAssemblies;
+            }
         }
     }
 }

@@ -23,7 +23,7 @@ namespace Vrili.Core.Services
         
         public int FindRecipeWithActivities()
         {
-            return (from recipe in _connection.Table<Recipe>()
+            return (from recipe in _connection.GetAllWithChildren<Recipe>()
                     where recipe.Activities.Count > 0
                     select recipe.Id).First();
         }
