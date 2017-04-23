@@ -3,20 +3,23 @@
     xmlns:local="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_margin="2pt">
     <TextView
-        android:text="Text"
+        android:text="Name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        local:MvxBind="Text Name" />
+        android:layout_gravity="center"
+        android:gravity="left|center"
+        local:MvxBind="Text Name"
+        android:layout_weight="1" />
     <TextView
-        android:text="Text"
+        android:text="RemainingTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        local:MvxBind="Text RemainingTime" />
-    <TextView
-        android:text="Text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        local:MvxBind="Text IsOngoing" />
+        android:layout_gravity="right"
+        android:gravity="right|center"
+        local:MvxBind="Text RemainingTime"
+        android:id="@+id/textView1"
+        android:layout_weight="1" />
 </LinearLayout>
