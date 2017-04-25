@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:clickable="true"
-        android:src="@drawable/ic_fab"
+        android:src="@drawable/ic_add"
         local:layout_anchor="@id/viewA"
         local:layout_anchorGravity="bottom|right|end" />
 </android.support.design.widget.CoordinatorLayout>

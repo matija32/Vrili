@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:local="http://schemas.android.com/apk/res-auto">
-  <item android:id="@+id/new_game"
-        android:icon="@drawable/ic_fab"
-        android:title="NEW"
+  <item android:id="@+id/open"
+        android:icon="@drawable/ic_open"
+        android:title="Open"
+        local:showAsAction="always"/>
+  <item android:id="@+id/save"
+        android:icon="@drawable/ic_save"
+        android:title="Save"
         local:showAsAction="ifRoom"/>
-  <item android:id="@+id/help"
-        android:icon="@drawable/ic_fab"
-        android:title="HELP" />
+  <item android:id="@+id/share"
+      android:icon="@drawable/ic_share"
+      android:title="Share"
+      local:showAsAction="ifRoom"/>
 </menu>

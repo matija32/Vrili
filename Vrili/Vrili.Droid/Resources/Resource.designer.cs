@@ -3459,16 +3459,31 @@ namespace Vrili.Droid
 			public const int design_snackbar_background = 2130837580;
 			
 			// aapt resource value: 0x7f02004d
-			public const int ic_fab = 2130837581;
+			public const int ic_add = 2130837581;
 			
 			// aapt resource value: 0x7f02004e
-			public const int Icon = 2130837582;
-			
-			// aapt resource value: 0x7f020050
-			public const int notification_template_icon_bg = 2130837584;
+			public const int ic_done = 2130837582;
 			
 			// aapt resource value: 0x7f02004f
-			public const int splash = 2130837583;
+			public const int ic_open = 2130837583;
+			
+			// aapt resource value: 0x7f020050
+			public const int ic_save = 2130837584;
+			
+			// aapt resource value: 0x7f020051
+			public const int ic_search = 2130837585;
+			
+			// aapt resource value: 0x7f020052
+			public const int ic_share = 2130837586;
+			
+			// aapt resource value: 0x7f020053
+			public const int Icon = 2130837587;
+			
+			// aapt resource value: 0x7f020055
+			public const int notification_template_icon_bg = 2130837589;
+			
+			// aapt resource value: 0x7f020054
+			public const int splash = 2130837588;
 			
 			static Drawable()
 			{
@@ -3651,9 +3666,6 @@ namespace Vrili.Droid
 			// aapt resource value: 0x7f06003a
 			public const int @fixed = 2131099706;
 			
-			// aapt resource value: 0x7f060085
-			public const int help = 2131099781;
-			
 			// aapt resource value: 0x7f060005
 			public const int home = 2131099653;
 			
@@ -3708,14 +3720,14 @@ namespace Vrili.Droid
 			// aapt resource value: 0x7f060023
 			public const int never = 2131099683;
 			
-			// aapt resource value: 0x7f060084
-			public const int new_game = 2131099780;
-			
 			// aapt resource value: 0x7f060012
 			public const int none = 2131099666;
 			
 			// aapt resource value: 0x7f06000e
 			public const int normal = 2131099662;
+			
+			// aapt resource value: 0x7f060084
+			public const int open = 2131099780;
 			
 			// aapt resource value: 0x7f06002a
 			public const int parallax = 2131099690;
@@ -3740,6 +3752,9 @@ namespace Vrili.Droid
 			
 			// aapt resource value: 0x7f060032
 			public const int right = 2131099698;
+			
+			// aapt resource value: 0x7f060085
+			public const int save = 2131099781;
 			
 			// aapt resource value: 0x7f060019
 			public const int screen = 2131099673;
@@ -3791,6 +3806,9 @@ namespace Vrili.Droid
 			
 			// aapt resource value: 0x7f06006a
 			public const int select_dialog_listview = 2131099754;
+			
+			// aapt resource value: 0x7f060086
+			public const int share = 2131099782;
 			
 			// aapt resource value: 0x7f060055
 			public const int shortcut = 2131099733;
