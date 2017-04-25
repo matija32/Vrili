@@ -3465,25 +3465,28 @@ namespace Vrili.Droid
 			public const int ic_done = 2130837582;
 			
 			// aapt resource value: 0x7f02004f
-			public const int ic_open = 2130837583;
+			public const int ic_edit = 2130837583;
 			
 			// aapt resource value: 0x7f020050
-			public const int ic_save = 2130837584;
+			public const int ic_open = 2130837584;
 			
 			// aapt resource value: 0x7f020051
-			public const int ic_search = 2130837585;
+			public const int ic_save = 2130837585;
 			
 			// aapt resource value: 0x7f020052
-			public const int ic_share = 2130837586;
+			public const int ic_search = 2130837586;
 			
 			// aapt resource value: 0x7f020053
-			public const int Icon = 2130837587;
-			
-			// aapt resource value: 0x7f020055
-			public const int notification_template_icon_bg = 2130837589;
+			public const int ic_share = 2130837587;
 			
 			// aapt resource value: 0x7f020054
-			public const int splash = 2130837588;
+			public const int Icon = 2130837588;
+			
+			// aapt resource value: 0x7f020056
+			public const int notification_template_icon_bg = 2130837590;
+			
+			// aapt resource value: 0x7f020055
+			public const int splash = 2130837589;
 			
 			static Drawable()
 			{
