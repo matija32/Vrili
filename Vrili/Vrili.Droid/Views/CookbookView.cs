@@ -1,5 +1,6 @@
 using Android.App;
 using Android.OS;
+using Android.Views;
 using MvvmCross.Droid.Views;
 using System;
 using Vrili.Core.ViewModels;
@@ -13,6 +14,12 @@ namespace Vrili.Droid.Views
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.CookbookView);
+        }
+
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.RecipeMenu, menu);
+            return base.OnCreateOptionsMenu(menu);
         }
     }
 }

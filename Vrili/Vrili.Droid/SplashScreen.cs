@@ -5,7 +5,7 @@ using MvvmCross.Droid.Views;
 namespace Vrili.Droid
 {
     [Activity(
-        Label = "Vrili"
+          Label = "Vrili"
         , MainLauncher = true
         , Icon = "@drawable/icon"
         , Theme = "@style/Theme.Splash"

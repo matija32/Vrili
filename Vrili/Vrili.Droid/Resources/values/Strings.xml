@@ -7,5 +7,6 @@
   <string name="open_recipe">Open recipe</string>
   <string name="save_recipe">Save recipe</string>
   <string name="share_recipe">Share recipe</string>
-	<string name="app_name">Vrili</string>
+	<string name="recipe_name_hint">Recipe name</string>
+  <string name="app_name">Vrili</string>
 </resources>

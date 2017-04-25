@@ -6,20 +6,18 @@
     android:layout_height="wrap_content"
     android:layout_margin="2pt">
     <TextView
-        android:text="Name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="left|center"
         local:MvxBind="Text Name"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:maxLines="2"/>
     <TextView
-        android:text="RemainingTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
         android:gravity="right|center"
         local:MvxBind="Text RemainingTime"
-        android:id="@+id/textView1"
         android:layout_weight="1" />
 </LinearLayout>

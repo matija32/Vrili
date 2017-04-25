@@ -226,7 +226,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="Resources\AboutResources.txt" />
+    <None Include="Resources\values-v21\AboutResources.txt" />
     <None Include="Properties\AndroidManifest.xml" />
     <None Include="Assets\AboutAssets.txt" />
     <AndroidResource Include="Resources\layout\SplashScreen.axml">
@@ -236,6 +236,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\CookbookView.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\menu\RecipeMenu.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -251,7 +254,9 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\Icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\values\SplashStyle.xml" />
+    <AndroidResource Include="Resources\values\SplashStyle.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
     <AndroidResource Include="Resources\drawable\splash.png" />
   </ItemGroup>
   <ItemGroup>
@@ -270,7 +275,9 @@
     <AndroidResource Include="Resources\values\Colors.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\values-v21\styles.xml" />
+    <AndroidResource Include="Resources\values-v21\styles.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\ic_fab.png" />

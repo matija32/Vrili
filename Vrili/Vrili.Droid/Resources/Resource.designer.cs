@@ -3489,8 +3489,8 @@ namespace Vrili.Droid
 			// aapt resource value: 0x7f06000c
 			public const int MvxBindingTagUnique = 2131099660;
 			
-			// aapt resource value: 0x7f060078
-			public const int action0 = 2131099768;
+			// aapt resource value: 0x7f060076
+			public const int action0 = 2131099766;
 			
 			// aapt resource value: 0x7f06005c
 			public const int action_bar = 2131099740;
@@ -3516,8 +3516,8 @@ namespace Vrili.Droid
 			// aapt resource value: 0x7f06005d
 			public const int action_context_bar = 2131099741;
 			
-			// aapt resource value: 0x7f06007c
-			public const int action_divider = 2131099772;
+			// aapt resource value: 0x7f06007a
+			public const int action_divider = 2131099770;
 			
 			// aapt resource value: 0x7f060003
 			public const int action_menu_divider = 2131099651;
@@ -3552,8 +3552,8 @@ namespace Vrili.Droid
 			// aapt resource value: 0x7f060046
 			public const int buttonPanel = 2131099718;
 			
-			// aapt resource value: 0x7f060079
-			public const int cancel_action = 2131099769;
+			// aapt resource value: 0x7f060077
+			public const int cancel_action = 2131099767;
 			
 			// aapt resource value: 0x7f06002d
 			public const int center = 2131099693;
@@ -3567,8 +3567,8 @@ namespace Vrili.Droid
 			// aapt resource value: 0x7f060054
 			public const int checkbox = 2131099732;
 			
-			// aapt resource value: 0x7f06007f
-			public const int chronometer = 2131099775;
+			// aapt resource value: 0x7f06007d
+			public const int chronometer = 2131099773;
 			
 			// aapt resource value: 0x7f060035
 			public const int clip_horizontal = 2131099701;
@@ -3594,20 +3594,20 @@ namespace Vrili.Droid
 			// aapt resource value: 0x7f060042
 			public const int default_activity_button = 2131099714;
 			
-			// aapt resource value: 0x7f06006f
-			public const int design_bottom_sheet = 2131099759;
-			
-			// aapt resource value: 0x7f060076
-			public const int design_menu_item_action_area = 2131099766;
+			// aapt resource value: 0x7f06006e
+			public const int design_bottom_sheet = 2131099758;
 			
 			// aapt resource value: 0x7f060075
-			public const int design_menu_item_action_area_stub = 2131099765;
+			public const int design_menu_item_action_area = 2131099765;
 			
 			// aapt resource value: 0x7f060074
-			public const int design_menu_item_text = 2131099764;
+			public const int design_menu_item_action_area_stub = 2131099764;
 			
 			// aapt resource value: 0x7f060073
-			public const int design_navigation_view = 2131099763;
+			public const int design_menu_item_text = 2131099763;
+			
+			// aapt resource value: 0x7f060072
+			public const int design_navigation_view = 2131099762;
 			
 			// aapt resource value: 0x7f060010
 			public const int disableHome = 2131099664;
@@ -3618,8 +3618,8 @@ namespace Vrili.Droid
 			// aapt resource value: 0x7f06001e
 			public const int end = 2131099678;
 			
-			// aapt resource value: 0x7f060084
-			public const int end_padder = 2131099780;
+			// aapt resource value: 0x7f060082
+			public const int end_padder = 2131099778;
 			
 			// aapt resource value: 0x7f060025
 			public const int enterAlways = 2131099685;
@@ -3636,8 +3636,8 @@ namespace Vrili.Droid
 			// aapt resource value: 0x7f060053
 			public const int expanded_menu = 2131099731;
 			
-			// aapt resource value: 0x7f06006d
-			public const int fab = 2131099757;
+			// aapt resource value: 0x7f06006c
+			public const int fab = 2131099756;
 			
 			// aapt resource value: 0x7f060037
 			public const int fill = 2131099703;
@@ -3650,6 +3650,9 @@ namespace Vrili.Droid
 			
 			// aapt resource value: 0x7f06003a
 			public const int @fixed = 2131099706;
+			
+			// aapt resource value: 0x7f060085
+			public const int help = 2131099781;
 			
 			// aapt resource value: 0x7f060005
 			public const int home = 2131099653;
@@ -3666,8 +3669,8 @@ namespace Vrili.Droid
 			// aapt resource value: 0x7f060041
 			public const int image = 2131099713;
 			
-			// aapt resource value: 0x7f060083
-			public const int info = 2131099779;
+			// aapt resource value: 0x7f060081
+			public const int info = 2131099777;
 			
 			// aapt resource value: 0x7f060000
 			public const int item_touch_helper_previous_elevation = 2131099648;
@@ -3675,11 +3678,11 @@ namespace Vrili.Droid
 			// aapt resource value: 0x7f060031
 			public const int left = 2131099697;
 			
-			// aapt resource value: 0x7f06007d
-			public const int line1 = 2131099773;
+			// aapt resource value: 0x7f06007b
+			public const int line1 = 2131099771;
 			
-			// aapt resource value: 0x7f060081
-			public const int line3 = 2131099777;
+			// aapt resource value: 0x7f06007f
+			public const int line3 = 2131099775;
 			
 			// aapt resource value: 0x7f06000d
 			public const int listMode = 2131099661;
@@ -3687,8 +3690,8 @@ namespace Vrili.Droid
 			// aapt resource value: 0x7f060043
 			public const int list_item = 2131099715;
 			
-			// aapt resource value: 0x7f06007b
-			public const int media_actions = 2131099771;
+			// aapt resource value: 0x7f060079
+			public const int media_actions = 2131099769;
 			
 			// aapt resource value: 0x7f06001f
 			public const int middle = 2131099679;
@@ -3699,11 +3702,14 @@ namespace Vrili.Droid
 			// aapt resource value: 0x7f060018
 			public const int multiply = 2131099672;
 			
-			// aapt resource value: 0x7f060072
-			public const int navigation_header_container = 2131099762;
+			// aapt resource value: 0x7f060071
+			public const int navigation_header_container = 2131099761;
 			
 			// aapt resource value: 0x7f060023
 			public const int never = 2131099683;
+			
+			// aapt resource value: 0x7f060084
+			public const int new_game = 2131099780;
 			
 			// aapt resource value: 0x7f060012
 			public const int none = 2131099666;
@@ -3728,6 +3734,9 @@ namespace Vrili.Droid
 			
 			// aapt resource value: 0x7f060056
 			public const int radio = 2131099734;
+			
+			// aapt resource value: 0x7f060083
+			public const int recipe_name = 2131099779;
 			
 			// aapt resource value: 0x7f060032
 			public const int right = 2131099698;
@@ -3795,11 +3804,11 @@ namespace Vrili.Droid
 			// aapt resource value: 0x7f060015
 			public const int showTitle = 2131099669;
 			
-			// aapt resource value: 0x7f060071
-			public const int snackbar_action = 2131099761;
-			
 			// aapt resource value: 0x7f060070
-			public const int snackbar_text = 2131099760;
+			public const int snackbar_action = 2131099760;
+			
+			// aapt resource value: 0x7f06006f
+			public const int snackbar_text = 2131099759;
 			
 			// aapt resource value: 0x7f060029
 			public const int snap = 2131099689;
@@ -3822,8 +3831,8 @@ namespace Vrili.Droid
 			// aapt resource value: 0x7f060033
 			public const int start = 2131099699;
 			
-			// aapt resource value: 0x7f06007a
-			public const int status_bar_latest_event_content = 2131099770;
+			// aapt resource value: 0x7f060078
+			public const int status_bar_latest_event_content = 2131099768;
 			
 			// aapt resource value: 0x7f060067
 			public const int submit_area = 2131099751;
@@ -3831,20 +3840,17 @@ namespace Vrili.Droid
 			// aapt resource value: 0x7f06000f
 			public const int tabMode = 2131099663;
 			
-			// aapt resource value: 0x7f060082
-			public const int text = 2131099778;
-			
 			// aapt resource value: 0x7f060080
-			public const int text2 = 2131099776;
+			public const int text = 2131099776;
+			
+			// aapt resource value: 0x7f06007e
+			public const int text2 = 2131099774;
 			
 			// aapt resource value: 0x7f06004f
 			public const int textSpacerNoButtons = 2131099727;
 			
-			// aapt resource value: 0x7f060077
-			public const int textView1 = 2131099767;
-			
-			// aapt resource value: 0x7f06007e
-			public const int time = 2131099774;
+			// aapt resource value: 0x7f06007c
+			public const int time = 2131099772;
 			
 			// aapt resource value: 0x7f060045
 			public const int title = 2131099717;
@@ -3858,8 +3864,8 @@ namespace Vrili.Droid
 			// aapt resource value: 0x7f060049
 			public const int topPanel = 2131099721;
 			
-			// aapt resource value: 0x7f06006e
-			public const int touch_outside = 2131099758;
+			// aapt resource value: 0x7f06006d
+			public const int touch_outside = 2131099757;
 			
 			// aapt resource value: 0x7f060009
 			public const int up = 2131099657;
@@ -3869,9 +3875,6 @@ namespace Vrili.Droid
 			
 			// aapt resource value: 0x7f06006b
 			public const int viewA = 2131099755;
-			
-			// aapt resource value: 0x7f06006c
-			public const int viewB = 2131099756;
 			
 			// aapt resource value: 0x7f06000a
 			public const int view_offset_helper = 2131099658;
@@ -4098,6 +4101,22 @@ namespace Vrili.Droid
 			}
 		}
 		
+		public partial class Menu
+		{
+			
+			// aapt resource value: 0x7f0c0000
+			public const int RecipeMenu = 2131492864;
+			
+			static Menu()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Menu()
+			{
+			}
+		}
+		
 		public partial class String
 		{
 			
@@ -4167,8 +4186,8 @@ namespace Vrili.Droid
 			// aapt resource value: 0x7f07001c
 			public const int add_activity = 2131165212;
 			
-			// aapt resource value: 0x7f070023
-			public const int app_name = 2131165219;
+			// aapt resource value: 0x7f070024
+			public const int app_name = 2131165220;
 			
 			// aapt resource value: 0x7f070014
 			public const int appbar_scrolling_view_behavior = 2131165204;
@@ -4193,6 +4212,9 @@ namespace Vrili.Droid
 			
 			// aapt resource value: 0x7f070020
 			public const int open_recipe = 2131165216;
+			
+			// aapt resource value: 0x7f070023
+			public const int recipe_name_hint = 2131165219;
 			
 			// aapt resource value: 0x7f070021
 			public const int save_recipe = 2131165217;

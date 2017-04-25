@@ -3,6 +3,7 @@ using Android.OS;
 using MvvmCross.Droid.Views;
 using System;
 using Vrili.Core.ViewModels;
+using Android.Views;
 
 namespace Vrili.Droid.Views
 {
