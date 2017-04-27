@@ -3657,6 +3657,9 @@ namespace Vrili.Droid
 			// aapt resource value: 0x7f06006c
 			public const int fab = 2131099756;
 			
+			// aapt resource value: 0x7f060083
+			public const int fab_add_activity = 2131099779;
+			
 			// aapt resource value: 0x7f060037
 			public const int fill = 2131099703;
 			
@@ -3729,9 +3732,6 @@ namespace Vrili.Droid
 			// aapt resource value: 0x7f06000e
 			public const int normal = 2131099662;
 			
-			// aapt resource value: 0x7f060084
-			public const int open = 2131099780;
-			
 			// aapt resource value: 0x7f06002a
 			public const int parallax = 2131099690;
 			
@@ -3750,14 +3750,17 @@ namespace Vrili.Droid
 			// aapt resource value: 0x7f060056
 			public const int radio = 2131099734;
 			
-			// aapt resource value: 0x7f060083
-			public const int recipe_name = 2131099779;
+			// aapt resource value: 0x7f060084
+			public const int recipe_menu_open = 2131099780;
+			
+			// aapt resource value: 0x7f060085
+			public const int recipe_menu_save = 2131099781;
+			
+			// aapt resource value: 0x7f060086
+			public const int recipe_menu_share = 2131099782;
 			
 			// aapt resource value: 0x7f060032
 			public const int right = 2131099698;
-			
-			// aapt resource value: 0x7f060085
-			public const int save = 2131099781;
 			
 			// aapt resource value: 0x7f060019
 			public const int screen = 2131099673;
@@ -3809,9 +3812,6 @@ namespace Vrili.Droid
 			
 			// aapt resource value: 0x7f06006a
 			public const int select_dialog_listview = 2131099754;
-			
-			// aapt resource value: 0x7f060086
-			public const int share = 2131099782;
 			
 			// aapt resource value: 0x7f060055
 			public const int shortcut = 2131099733;

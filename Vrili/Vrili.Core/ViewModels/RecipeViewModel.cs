@@ -26,6 +26,9 @@ namespace Vrili.Core.ViewModels
         private readonly ICommand _startCookingCommand;
         public ICommand StartCookingCommand { get { return _startCookingCommand; } }
 
+        private readonly ICommand _openCommand;
+        public ICommand OpenCommand { get { return _openCommand; } }
+
         private readonly ICommand _saveCommand;
         public ICommand SaveCommand { get { return _saveCommand; } }
 
@@ -53,9 +56,11 @@ namespace Vrili.Core.ViewModels
             var isIdle = this.WhenAny(x => x.IsCountingDown, x => !x.Value);
             _addActivityCommand = ReactiveCommand.Create(() => AddActivity(), isIdle);
             _startCookingCommand = ReactiveCommand.Create(() => StartCooking(), isIdle);
+            _openCommand = ReactiveCommand.Create(() => Open());
             _saveCommand = ReactiveCommand.Create(() => Save());
             _shareCommand = ReactiveCommand.Create(() => Share());
         }
+
 
         public void Init(bool loadRecipe)
         {
@@ -65,6 +70,11 @@ namespace Vrili.Core.ViewModels
                 var recipe = _recipeRepo.Get(recipeId);
                 Activities.AddRange(recipe.Activities);
             }
+        }
+
+        private void Open()
+        {
+            ShowViewModel<CookbookViewModel>();
         }
 
         public override void Start()

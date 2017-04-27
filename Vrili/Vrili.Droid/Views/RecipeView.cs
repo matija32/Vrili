@@ -21,5 +21,29 @@ namespace Vrili.Droid.Views
             MenuInflater.Inflate(Resource.Menu.RecipeMenu, menu);
             return base.OnCreateOptionsMenu(menu);
         }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Resource.Id.recipe_menu_open:
+
+                    ViewModel.OpenCommand.Execute(null);
+                    return true;
+
+                case Resource.Id.recipe_menu_save:
+
+                    ViewModel.SaveCommand.Execute(null);
+                    return true;
+
+                case Resource.Id.recipe_menu_share:
+
+                    ViewModel.ShareCommand.Execute(null);
+                    return true;
+
+                default:
+                    return base.OnOptionsItemSelected(item);
+            }
+        }
     }
 }

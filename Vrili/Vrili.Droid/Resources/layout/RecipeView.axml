@@ -1,42 +1,33 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:local="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <EditText
-            android:id="@+id/recipe_name"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/viewA"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/recipe_name_hint" />
-    </android.support.design.widget.TextInputLayout>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/add_activity"
-        local:MvxBind="Click AddActivityCommand" />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/start_cooking"
-        local:MvxBind="Click StartCookingCommand" />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/save_recipe"
-        local:MvxBind="Click SaveCommand" />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/share_recipe"
-        local:MvxBind="Click ShareCommand" />
-    <Mvx.MvxListView
-        android:scrollbars="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        local:MvxItemTemplate="@layout/item_cookingactivity"
-        local:MvxBind="ItemsSource Activities" />
-</LinearLayout>
+            android:text="Recipe name" />
+        <Mvx.MvxListView
+            android:scrollbars="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            local:MvxItemTemplate="@layout/item_cookingactivity"
+            local:MvxBind="ItemsSource Activities" />
+    </LinearLayout>
+  <android.support.design.widget.FloatingActionButton
+    android:id="@+id/fab_add_activity"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    android:clickable="true"
+    android:src="@drawable/ic_add"
+    local:layout_anchor="@id/viewA"
+    local:layout_anchorGravity="bottom|right|end"
+    local:MvxBind="Click AddActivityCommand" />
+</android.support.design.widget.CoordinatorLayout>

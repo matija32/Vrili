@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:local="http://schemas.android.com/apk/res-auto">
-  <item android:id="@+id/open"
+  <item android:id="@+id/recipe_menu_open"
         android:icon="@drawable/ic_open"
         android:title="Open"
         local:showAsAction="always"/>
-  <item android:id="@+id/save"
+  <item android:id="@+id/recipe_menu_save"
         android:icon="@drawable/ic_save"
         android:title="Save"
         local:showAsAction="ifRoom"/>
-  <item android:id="@+id/share"
+  <item android:id="@+id/recipe_menu_share"
       android:icon="@drawable/ic_share"
       android:title="Share"
       local:showAsAction="ifRoom"/>
