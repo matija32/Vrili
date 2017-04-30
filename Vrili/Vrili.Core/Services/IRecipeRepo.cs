@@ -12,5 +12,7 @@ namespace Vrili.Core.Services
         int FindRecipeWithActivities();
         void Save(Recipe recipe);
         Recipe Get(int recipeId);
+
+        IEnumerable<Recipe> GetAllRecipes();
     }
 }

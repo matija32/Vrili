@@ -226,6 +226,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <AndroidResource Include="Resources\layout\Item_Recipe.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
     <None Include="Resources\values-v21\AboutResources.txt" />
     <None Include="Properties\AndroidManifest.xml" />
     <None Include="Assets\AboutAssets.txt" />

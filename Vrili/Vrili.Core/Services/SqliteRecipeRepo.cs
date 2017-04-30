@@ -33,6 +33,11 @@ namespace Vrili.Core.Services
             return _connection.GetWithChildren<Recipe>(recipeId);
         }
 
+        public IEnumerable<Recipe> GetAllRecipes()
+        {
+            return _connection.GetAllWithChildren<Recipe>();
+        }
+
         public void Save(Recipe recipe)
         {
             _connection.InsertWithChildren(recipe);

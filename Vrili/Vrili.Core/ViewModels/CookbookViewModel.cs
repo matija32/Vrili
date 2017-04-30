@@ -7,28 +7,45 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Vrili.Core.Models;
 using Vrili.Core.Services;
 
 namespace Vrili.Core.ViewModels
-{
+{ 
     public class CookbookViewModel : MvxViewModel
     {
+        public MvxObservableCollection<Recipe> RecipeNames { get; private set; }
+            = new MvxObservableCollection<Recipe>();
+
         private readonly ICommand _openRecipeCommand;
         public ICommand OpenRecipeCommand { get { return _openRecipeCommand; } }
 
-        public CookbookViewModel()
+        private IRecipeRepo _recipeRepo;
+
+
+        public CookbookViewModel(
+            IRecipeRepo recipeRepo)
         {
-            _openRecipeCommand = ReactiveCommand.Create(() => OpenRecipe());
+            _recipeRepo = recipeRepo;
+
+            _openRecipeCommand = ReactiveCommand.Create<Recipe>((r) => OpenRecipe(r));
+
+            ShowAllRecipes();
         }
 
-        private void SetUpRecipe()
+        private void ShowAllRecipes()
         {
-            ShowViewModel<RecipeViewModel>();
+            RecipeNames.ReplaceWith(_recipeRepo.GetAllRecipes());
         }
 
-        private void OpenRecipe()
+        private void OpenRecipe(Recipe recipe)
         {
-            ShowViewModel<RecipeViewModel>(new { loadRecipe = true });
+            //Close(this);
+            ShowViewModel<RecipeViewModel>(
+                new {
+                    loadRecipe = true,
+                    recipeId = recipe.Id
+                });
         }
     }
 }

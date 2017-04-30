@@ -64,11 +64,10 @@ namespace Vrili.Core.ViewModels
         }
 
 
-        public void Init(bool loadRecipe)
+        public void Init(bool loadRecipe, int recipeId)
         {
             if (loadRecipe)
             {
-                var recipeId = _recipeRepo.FindRecipeWithActivities();
                 var recipe = _recipeRepo.Get(recipeId);
                 Activities.AddRange(recipe.Activities);
             }
@@ -92,9 +91,10 @@ namespace Vrili.Core.ViewModels
 
         private void Save()
         {
+            int r = new Random().Next(0, 200);
             _recipeRepo.Save(new Recipe
             {
-                Name = "Baboon cooking",
+                Name = "Baboon cooking " + r,
                 Activities = this.Activities.ToList()
             });
         }
