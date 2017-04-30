@@ -6,10 +6,8 @@ using System.Windows.Input;
 using Vrili.Core.Models;
 using ReactiveUI;
 using Vrili.Core.Services;
-using System.Collections.Generic;
 using MvvmCross.Plugins.Share;
 using MvvmCross.Platform;
-using Teddy.MvvmCross.Plugins.SimpleAudioPlayer;
 
 
 namespace Vrili.Core.ViewModels
@@ -36,8 +34,10 @@ namespace Vrili.Core.ViewModels
         public ICommand ShareCommand { get { return _shareCommand; } }
 
         private int baboonCount = 0;
+
         private IRecipeRepo _recipeRepo;
-        private IMvxSimpleAudioPlayer _audioPlayer;
+        private IAlarmBell _alarmBell;
+        private IMvxShareTask _shareTask;
 
         private bool _isCountingDown;
         public bool IsCountingDown
@@ -48,10 +48,12 @@ namespace Vrili.Core.ViewModels
 
         public RecipeViewModel(
               IRecipeRepo recipeRepo
-            , IMvxSimpleAudioPlayer audioPlayer)
+            , IAlarmBell audioPlayer
+            , IMvxShareTask shareTask)
         {
             _recipeRepo = recipeRepo;
-            _audioPlayer = audioPlayer;
+            _alarmBell = audioPlayer;
+            _shareTask = shareTask;
 
             var isIdle = this.WhenAny(x => x.IsCountingDown, x => !x.Value);
             _addActivityCommand = ReactiveCommand.Create(() => AddActivity(), isIdle);
@@ -85,8 +87,7 @@ namespace Vrili.Core.ViewModels
 
         private void Share()
         {
-            var service = Mvx.Resolve<IMvxShareTask>();
-            service.ShareLink("Baboon cooking", "Checkout my recipe!", "vrili.com/baboon-cooking");
+            _shareTask.ShareLink("Baboon cooking", "Checkout my recipe!", "vrili.com/baboon-cooking");
         }
 
         private void Save()
@@ -116,9 +117,7 @@ namespace Vrili.Core.ViewModels
 
         private void StartCooking()
         {
-            _audioPlayer.Open("alarm_clock.mp3");
-            _audioPlayer.Volume = 1;
-            _audioPlayer.Play();
+            _alarmBell.RingOnce();
             Activities.ToObservable().Subscribe(a => a.CountDown());
         } 
     }

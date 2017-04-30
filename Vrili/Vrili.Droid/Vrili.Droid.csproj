@@ -178,11 +178,11 @@
     <Reference Include="System.Core" />
     <Reference Include="Mono.Android" />
     <Reference Include="Teddy.MvvmCross.Plugins.SimpleAudioPlayer, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Teddy.MvvmCross.Plugin.SimpleAudioPlayer.1.0.7\lib\MonoAndroid\Teddy.MvvmCross.Plugins.SimpleAudioPlayer.dll</HintPath>
+      <HintPath>..\..\packages\Teddy.MvvmCross.Plugin.SimpleAudioPlayer.1.0.8\lib\MonoAndroid\Teddy.MvvmCross.Plugins.SimpleAudioPlayer.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Teddy.MvvmCross.Plugins.SimpleAudioPlayer.Droid, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Teddy.MvvmCross.Plugin.SimpleAudioPlayer.1.0.7\lib\MonoAndroid\Teddy.MvvmCross.Plugins.SimpleAudioPlayer.Droid.dll</HintPath>
+      <HintPath>..\..\packages\Teddy.MvvmCross.Plugin.SimpleAudioPlayer.1.0.8\lib\MonoAndroid\Teddy.MvvmCross.Plugins.SimpleAudioPlayer.Droid.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Xamarin.Android.Support.Animated.Vector.Drawable, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">

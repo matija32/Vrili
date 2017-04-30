@@ -36,7 +36,9 @@
     <Compile Include="Models\CookingActivity.cs" />
     <Compile Include="Models\Recipe.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\IAlarmBell.cs" />
     <Compile Include="Services\IRecipeRepo.cs" />
+    <Compile Include="Services\AlarmBell.cs" />
     <Compile Include="Services\SqliteRecipeRepo.cs" />
     <Compile Include="ViewModels\CookbookViewModel.cs" />
     <Compile Include="ViewModels\RecipeViewModel.cs" />
@@ -123,7 +125,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Teddy.MvvmCross.Plugins.SimpleAudioPlayer, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Teddy.MvvmCross.Plugin.SimpleAudioPlayer.1.0.7\lib\portable-net45+win+wpa81+wp80\Teddy.MvvmCross.Plugins.SimpleAudioPlayer.dll</HintPath>
+      <HintPath>..\..\packages\Teddy.MvvmCross.Plugin.SimpleAudioPlayer.1.0.8\lib\portable-net45+win+wpa81+wp80\Teddy.MvvmCross.Plugins.SimpleAudioPlayer.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
