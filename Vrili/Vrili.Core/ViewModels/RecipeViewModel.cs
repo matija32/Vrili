@@ -8,7 +8,7 @@ using ReactiveUI;
 using Vrili.Core.Services;
 using MvvmCross.Plugins.Share;
 using MvvmCross.Platform;
-
+using MvvmCross.Plugins.Messenger;
 
 namespace Vrili.Core.ViewModels
 {
@@ -35,11 +35,14 @@ namespace Vrili.Core.ViewModels
 
         private int baboonCount = 0;
 
-        private IRecipeRepo _recipeRepo;
-        private IAlarmBell _alarmBell;
-        private IMvxShareTask _shareTask;
+        private readonly IRecipeRepo _recipeRepo;
+        private readonly IAlarmBell _alarmBell;
+        private readonly IMvxShareTask _shareTask;
+        private readonly IMvxMessenger _messenger;
 
         private bool _isCountingDown;
+        private MvxSubscriptionToken _token;
+
         public bool IsCountingDown
         {
             get { return this._isCountingDown; }
@@ -49,11 +52,13 @@ namespace Vrili.Core.ViewModels
         public RecipeViewModel(
               IRecipeRepo recipeRepo
             , IAlarmBell audioPlayer
-            , IMvxShareTask shareTask)
+            , IMvxShareTask shareTask
+            , IMvxMessenger messenger)
         {
             _recipeRepo = recipeRepo;
             _alarmBell = audioPlayer;
             _shareTask = shareTask;
+            _messenger = messenger;
 
             var isIdle = this.WhenAny(x => x.IsCountingDown, x => !x.Value);
             _addActivityCommand = ReactiveCommand.Create(() => AddActivity(), isIdle);
@@ -61,16 +66,19 @@ namespace Vrili.Core.ViewModels
             _openCommand = ReactiveCommand.Create(() => Open());
             _saveCommand = ReactiveCommand.Create(() => Save());
             _shareCommand = ReactiveCommand.Create(() => Share());
+
+            _token = messenger.SubscribeOnMainThread<ActiveRecipeMessage>(OnActiveRecipeChanged);
         }
 
-
-        public void Init(bool loadRecipe, int recipeId)
+        private void OnActiveRecipeChanged(ActiveRecipeMessage message)
         {
-            if (loadRecipe)
-            {
-                var recipe = _recipeRepo.Get(recipeId);
-                Activities.AddRange(recipe.Activities);
-            }
+            LoadRecipe(message.RecipeId);
+        }
+
+        private void LoadRecipe(int recipeId)
+        {
+            var recipe = _recipeRepo.Get(recipeId);
+            Activities.AddRange(recipe.Activities);
         }
 
         private void Open()

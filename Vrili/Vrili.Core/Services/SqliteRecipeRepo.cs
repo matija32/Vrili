@@ -35,7 +35,7 @@ namespace Vrili.Core.Services
 
         public IEnumerable<Recipe> GetAllRecipes()
         {
-            return _connection.GetAllWithChildren<Recipe>();
+            return _connection.Table<Recipe>();
         }
 
         public void Save(Recipe recipe)

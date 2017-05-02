@@ -1,5 +1,6 @@
 ﻿using MvvmCross.Core.ViewModels;
 using MvvmCross.Platform;
+using MvvmCross.Plugins.Messenger;
 using ReactiveUI;
 using System;
 using System.Collections.Generic;
@@ -20,13 +21,15 @@ namespace Vrili.Core.ViewModels
         private readonly ICommand _openRecipeCommand;
         public ICommand OpenRecipeCommand { get { return _openRecipeCommand; } }
 
-        private IRecipeRepo _recipeRepo;
-
+        private readonly IRecipeRepo _recipeRepo;
+        private readonly IMvxMessenger _messenger;
 
         public CookbookViewModel(
-            IRecipeRepo recipeRepo)
+            IRecipeRepo recipeRepo,
+            IMvxMessenger messenger)
         {
             _recipeRepo = recipeRepo;
+            _messenger = messenger;
 
             _openRecipeCommand = ReactiveCommand.Create<Recipe>((r) => OpenRecipe(r));
 
@@ -40,12 +43,13 @@ namespace Vrili.Core.ViewModels
 
         private void OpenRecipe(Recipe recipe)
         {
-            //Close(this);
-            ShowViewModel<RecipeViewModel>(
-                new {
-                    loadRecipe = true,
-                    recipeId = recipe.Id
-                });
+            PublishActiveRecipe(recipe);
+            Close(this);
+        }
+
+        private void PublishActiveRecipe(Recipe recipe)
+        {
+            _messenger.Publish(new ActiveRecipeMessage(this, recipe.Id));
         }
     }
 }

@@ -58,6 +58,10 @@
       <HintPath>..\packages\MvvmCross.Platform.4.4.0\lib\net45\MvvmCross.Platform.Wpf.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="MvvmCross.Plugins.Messenger, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmCross.Plugin.Messenger.4.4.0\lib\net45\MvvmCross.Plugins.Messenger.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="MvvmCross.Plugins.Share, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmCross.Plugin.Share.4.4.0\lib\net45\MvvmCross.Plugins.Share.dll</HintPath>
       <Private>True</Private>
@@ -139,6 +143,7 @@
     <Compile Include="AutoFixutre.AutoData.NUnit3\IParameterValueProvider.cs" />
     <Compile Include="AutoFixutre.AutoData.NUnit3\ITypedDataProvider.cs" />
     <Compile Include="AutoFixutre.AutoData.NUnit3\ParameterValueProvider.cs" />
+    <Compile Include="Bootstrap\MessengerPluginBootstrap.cs" />
     <Compile Include="Bootstrap\SharePluginBootstrap.cs" />
     <Compile Include="Mocks\MockMvxViewDispatcher.cs" />
     <Compile Include="RecipeViewModelTests.cs" />
