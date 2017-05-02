@@ -12,6 +12,7 @@ using Vrili.Core.Test.Mocks;
 using MvvmCross.Core.Views;
 using MvvmCross.Platform.Core;
 using System;
+using MvvmCross.Plugins.Messenger;
 
 namespace Vrili.Core.Tests
 {
@@ -22,10 +23,13 @@ namespace Vrili.Core.Tests
         private Mock<IAlarmBell> alarmBellMock;
         private Mock<IRecipeRepo> recipeRepoMock;
         private Mock<IMvxShareTask> shareTaskMock;
+        private Mock<IMvxMessenger> messengerMock;
+
         private RecipeViewModel recipeViewModel;
 
         private readonly IFixture _fixture;
         private MockMvxViewDispatcher mockDispatcher;
+        private Action<ActiveRecipeMessage> _publishActiveRecipe;
 
         public RecipeViewModelTests()
         {
@@ -40,11 +44,28 @@ namespace Vrili.Core.Tests
             alarmBellMock = _fixture.Freeze<Mock<IAlarmBell>>();
             recipeRepoMock = _fixture.Freeze<Mock<IRecipeRepo>>();
             shareTaskMock = _fixture.Freeze<Mock<IMvxShareTask>>();
+            messengerMock = _fixture.Freeze<Mock<IMvxMessenger>>();
+
+            SetupPublisherForActiveRecipeMessage();
+
             recipeViewModel = _fixture.Create<RecipeViewModel>();
 
             mockDispatcher = new MockMvxViewDispatcher();
             Ioc.RegisterSingleton<IMvxViewDispatcher>(mockDispatcher);
             Ioc.RegisterSingleton<MvxMainThreadDispatcher>(mockDispatcher);
+        }
+
+        private void SetupPublisherForActiveRecipeMessage()
+        {
+            messengerMock.Setup(n => n.SubscribeOnMainThread(
+                It.IsAny<Action<ActiveRecipeMessage>>(),
+                It.IsAny<MvxReference>(),
+                It.IsAny<string>()))
+                        .Callback<
+                            Action<ActiveRecipeMessage>,
+                            MvxReference,
+                            string>(
+                                (action, mvxref, tag) => _publishActiveRecipe = action);
         }
 
         [Test]
@@ -68,7 +89,7 @@ namespace Vrili.Core.Tests
         }
 
         [Test]
-        public void ShareRecipe()
+        public void SharingRecipe()
         {
             recipeViewModel.ShareCommand.Execute(null);
 
@@ -80,11 +101,24 @@ namespace Vrili.Core.Tests
         }
 
         [Test]
-        public void OpenRecipeFromACookbook()
+        public void OpenGoesToTheCookbook()
         {
             recipeViewModel.OpenCommand.Execute(null);
 
             mockDispatcher.AssertNavigatedTo<CookbookViewModel>();
+        }
+
+        [Test]
+        public void LoadingActiveRecipe()
+        {
+            Recipe recipe = _fixture.Create<Recipe>();
+            recipeRepoMock.Setup(r => r.Get(recipe.Id)).Returns(recipe);
+
+            _publishActiveRecipe(new ActiveRecipeMessage(this, recipe.Id));
+
+            recipeRepoMock.Verify(r => r.Get(recipe.Id), Times.Exactly(1));
+            Assert.AreEqual(recipe.Activities.Count, recipeViewModel.Activities.Count);
+
         }
     }
 }

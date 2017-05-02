@@ -1,13 +1,8 @@
 ﻿using MvvmCross.Plugins.Messenger;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Vrili.Core.ViewModels
 {
-    class ActiveRecipeMessage
+    public class ActiveRecipeMessage
         : MvxMessage
     {
         public ActiveRecipeMessage(object sender, int recipeId)
