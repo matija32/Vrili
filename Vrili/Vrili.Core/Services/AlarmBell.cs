@@ -20,21 +20,19 @@ namespace Vrili.Core.Services
         {
             _audioPlayer = audioPlayer;
         }
-        public void RingContinously()
+ 
+        public void Start()
         {
-            throw new NotImplementedException();
-        }
-
-        public void RingOnce()
-        {
+            _audioPlayer.SetUpLooping();
             _audioPlayer.Open(_soundFilePath);
             _audioPlayer.Volume = 1;
             _audioPlayer.Play();
         }
 
-        public void StopRinging()
+        public void Stop()
         {
-            throw new NotImplementedException();
+            _audioPlayer.Stop();
+            _audioPlayer.TearDownLooping();
         }
     }
 }

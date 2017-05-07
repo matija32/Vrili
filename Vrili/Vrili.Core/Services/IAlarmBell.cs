@@ -2,8 +2,7 @@
 {
     public interface IAlarmBell
     {
-        void RingOnce();
-        void RingContinously();
-        void StopRinging();
+        void Start();
+        void Stop();
     }
 }

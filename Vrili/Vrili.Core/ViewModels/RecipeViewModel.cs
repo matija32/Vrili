@@ -125,7 +125,6 @@ namespace Vrili.Core.ViewModels
 
         private void StartCooking()
         {
-            _alarmBell.RingOnce();
             Activities.ToObservable().Subscribe(a => a.CountDown());
         } 
     }
