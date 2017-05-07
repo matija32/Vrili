@@ -9,14 +9,15 @@ using Vrili.Core.Services;
 using MvvmCross.Plugins.Share;
 using MvvmCross.Platform;
 using MvvmCross.Plugins.Messenger;
+using System.Collections.Generic;
 
 namespace Vrili.Core.ViewModels
 {
 
     public class RecipeViewModel : MvxViewModel
     {
-        public MvxObservableCollection<CookingActivity> Activities { get; private set; }
-            = new MvxObservableCollection<CookingActivity>();
+        private ReactiveRecipe _recipe;
+        public IReactiveCollection<CookingActivityViewModel> Activities { get; private set; }
 
         private readonly ICommand _addActivityCommand;
         public ICommand AddActivityCommand { get { return _addActivityCommand; } }
@@ -32,11 +33,8 @@ namespace Vrili.Core.ViewModels
 
         private readonly ICommand _shareCommand;
         public ICommand ShareCommand { get { return _shareCommand; } }
-
-        private int baboonCount = 0;
-
+        
         private readonly IRecipeRepo _recipeRepo;
-        private readonly IAlarmBell _alarmBell;
         private readonly IMvxShareTask _shareTask;
         private readonly IMvxMessenger _messenger;
 
@@ -51,34 +49,37 @@ namespace Vrili.Core.ViewModels
 
         public RecipeViewModel(
               IRecipeRepo recipeRepo
-            , IAlarmBell audioPlayer
             , IMvxShareTask shareTask
             , IMvxMessenger messenger)
         {
             _recipeRepo = recipeRepo;
-            _alarmBell = audioPlayer;
             _shareTask = shareTask;
             _messenger = messenger;
 
             var isIdle = this.WhenAny(x => x.IsCountingDown, x => !x.Value);
             _addActivityCommand = ReactiveCommand.Create(() => AddActivity(), isIdle);
-            _startActivityCommand = ReactiveCommand.Create<CookingActivity>((a) => StartActivity(a));
+            _startActivityCommand = ReactiveCommand.Create<CookingActivityViewModel>((a) => ClickOnActivity(a));
             _openCommand = ReactiveCommand.Create(() => Open());
             _saveCommand = ReactiveCommand.Create(() => Save());
             _shareCommand = ReactiveCommand.Create(() => Share());
 
-            _token = messenger.SubscribeOnMainThread<LoadRecipeMessage>(OnActiveRecipeChanged);
+            _token = messenger.SubscribeOnMainThread<LoadRecipeMessage>(OnLoadRecipe);
+
+            int nr = new Random().Next(0, 200);
+            LoadRecipe(new Recipe { Name = "Stampot #" + nr  } );
         }
 
-        private void OnActiveRecipeChanged(LoadRecipeMessage message)
+        private void OnLoadRecipe(LoadRecipeMessage message)
         {
-            LoadRecipe(message.RecipeId);
+            var recipe = _recipeRepo.Get(message.RecipeId);
+            LoadRecipe(recipe);
         }
 
-        private void LoadRecipe(int recipeId)
+        private void LoadRecipe(Recipe recipe)
         {
-            var recipe = _recipeRepo.Get(recipeId);
-            Activities.AddRange(recipe.Activities);
+            _recipe = new ReactiveRecipe(recipe);
+            Activities = _recipe.Activities.CreateDerivedCollection(
+                a => new CookingActivityViewModel(a));
         }
 
         private void Open()
@@ -99,33 +100,25 @@ namespace Vrili.Core.ViewModels
 
         private void Save()
         {
-            int r = new Random().Next(0, 200);
-            _recipeRepo.Save(new Recipe
-            {
-                Name = "Baboon cooking " + r,
-                Activities = this.Activities.ToList()
-            });
+            _recipeRepo.Save(_recipe.ExtractRecipe());
         }
 
         private void AddActivity()
         {
+            int r = new Random().Next(1, 10);
             var activity = new CookingActivity
             {
-                Name = string.Format("Cook the baboon for {0}s. Time left: ", baboonCount),
-                TotalTime = TimeSpan.FromSeconds(baboonCount)
+                Name = string.Format("Cook the baboon for {0}s. ", r),
+                TotalTime = TimeSpan.FromSeconds(r)
             };
-            baboonCount++;
 
-            activity
-                .WhenAny(a => a.IsOngoing, x => x)
-                .Subscribe(onNext: _ => IsCountingDown = Activities.Any(a => a.IsOngoing));
+            _recipe.Activities.Add(activity);
             
-            Activities.Add(activity);
         }
 
-        private void StartActivity(CookingActivity activity)
+        private void ClickOnActivity(CookingActivityViewModel activity)
         {
-            activity.CountDown();
+            activity.StartCommand.Execute(null);
         }
     }
 }

@@ -1,10 +1,7 @@
-﻿using SQLite;
+﻿using ReactiveUI;
+using SQLite;
 using SQLiteNetExtensions.Attributes;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Vrili.Core.Models
 {
@@ -18,4 +15,36 @@ namespace Vrili.Core.Models
         [OneToMany(CascadeOperations = CascadeOperation.All)]
         public List<CookingActivity> Activities { get; set; } = new List<CookingActivity>();
     }
+
+    public class ReactiveRecipe : ReactiveObject
+    {
+        public int Id { get; private set; }
+
+        private string _name;
+        public string Name
+        {
+            get { return this._name; }
+            private set { this.RaiseAndSetIfChanged(ref _name, value); }
+        }
+
+        public ReactiveList<CookingActivity> Activities { get; private set; } = new ReactiveList<CookingActivity>();
+
+        public ReactiveRecipe(Recipe recipe)
+        {
+            Id = recipe.Id;
+            Name = recipe.Name;
+            Activities.AddRange(recipe.Activities);
+        }
+        
+        public Recipe ExtractRecipe()
+        {
+            return new Recipe
+            {
+                Id = this.Id,
+                Name = this.Name,
+                Activities = new List<CookingActivity>(this.Activities)
+            };
+        }
+    }
+
 }

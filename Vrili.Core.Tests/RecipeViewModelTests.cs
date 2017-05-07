@@ -13,6 +13,7 @@ using MvvmCross.Core.Views;
 using MvvmCross.Platform.Core;
 using System;
 using MvvmCross.Plugins.Messenger;
+using System.Linq;
 
 namespace Vrili.Core.Tests
 {
@@ -76,7 +77,7 @@ namespace Vrili.Core.Tests
                 recipeViewModel.AddActivityCommand.Execute(null);
             }
 
-            Assert.AreEqual(recipeViewModel.Activities.Count, numberOfActivities);
+            Assert.AreEqual(recipeViewModel.Activities.Count(), numberOfActivities);
         }
 
         [Test]
@@ -115,7 +116,7 @@ namespace Vrili.Core.Tests
             _publishActiveRecipe(new LoadRecipeMessage(this, recipe.Id));
 
             recipeRepoMock.Verify(r => r.Get(recipe.Id), Times.Exactly(1));
-            Assert.AreEqual(recipe.Activities.Count, recipeViewModel.Activities.Count);
+            Assert.AreEqual(recipe.Activities.Count, recipeViewModel.Activities.Count());
 
         }
     }

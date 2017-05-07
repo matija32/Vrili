@@ -2,11 +2,8 @@
 using SQLite;
 using SQLiteNetExtensions.Attributes;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reactive.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Vrili.Core.Models
 {
@@ -21,13 +18,15 @@ namespace Vrili.Core.Models
         public string Name { get; set; }
         public TimeSpan TotalTime { get; set; }
 
+        [Ignore]
+        public IObservable<bool> IsOngoing { get; private set; }
+
         public CookingActivity()
         {
-            this
+            IsOngoing = this
                 .WhenAnyValue(x => x.RemainingTime)
-                .Select(time => time > TimeSpan.Zero)
-                .ToProperty(this, x => x.IsOngoing, out _isOngoing);
-
+                .Select(time => time > TimeSpan.Zero);
+        
             RemainingTime = TimeSpan.Zero;
         }
         
@@ -37,12 +36,6 @@ namespace Vrili.Core.Models
             get { return this._remainingTime; }
             private set { this.RaiseAndSetIfChanged(ref _remainingTime, value); }
         }
-
-        ObservableAsPropertyHelper<bool> _isOngoing;
-        public bool IsOngoing
-        {
-            get { return _isOngoing.Value; }
-        } 
 
         public void CountDown()
         {

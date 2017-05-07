@@ -42,6 +42,7 @@
     <Compile Include="Services\SqliteRecipeRepo.cs" />
     <Compile Include="ViewModels\LoadRecipeMessage.cs" />
     <Compile Include="ViewModels\CookbookViewModel.cs" />
+    <Compile Include="ViewModels\CookingActivityViewModel.cs" />
     <Compile Include="ViewModels\RecipeViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
