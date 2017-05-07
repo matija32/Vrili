@@ -34,6 +34,11 @@
       <HintPath>..\packages\Castle.Core.4.0.0\lib\net45\Castle.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.Reactive.Testing, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rx-Testing.2.2.5\lib\net45\Microsoft.Reactive.Testing.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Moq, Version=4.7.8.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
       <HintPath>..\packages\Moq.4.7.8\lib\net45\Moq.dll</HintPath>
       <Private>True</Private>
@@ -98,6 +103,10 @@
       <HintPath>..\packages\reactiveui-core.7.1.0\lib\Net45\ReactiveUI.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="ReactiveUI.Testing, Version=7.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\reactiveui-testing.7.1.0\lib\Net45\ReactiveUI.Testing.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Splat, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Splat.1.4.0\lib\Net45\Splat.dll</HintPath>
       <Private>True</Private>
@@ -145,6 +154,7 @@
     <Compile Include="AutoFixutre.AutoData.NUnit3\ParameterValueProvider.cs" />
     <Compile Include="Bootstrap\MessengerPluginBootstrap.cs" />
     <Compile Include="Bootstrap\SharePluginBootstrap.cs" />
+    <Compile Include="CookingActivityViewModelTests.cs" />
     <Compile Include="Mocks\MockMvxViewDispatcher.cs" />
     <Compile Include="CookbookViewModelTests.cs" />
     <Compile Include="RecipeViewModelTests.cs" />
