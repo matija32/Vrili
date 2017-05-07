@@ -40,7 +40,7 @@
     <Compile Include="Services\IRecipeRepo.cs" />
     <Compile Include="Services\AlarmBell.cs" />
     <Compile Include="Services\SqliteRecipeRepo.cs" />
-    <Compile Include="ViewModels\ActiveRecipeMessage.cs" />
+    <Compile Include="ViewModels\LoadRecipeMessage.cs" />
     <Compile Include="ViewModels\CookbookViewModel.cs" />
     <Compile Include="ViewModels\RecipeViewModel.cs" />
   </ItemGroup>

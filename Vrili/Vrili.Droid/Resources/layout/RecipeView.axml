@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:textSize="20dp"
             local:MvxItemTemplate="@layout/item_cookingactivity"
-            local:MvxBind="ItemsSource Activities" />
+            local:MvxBind="ItemsSource Activities; ItemClick StartActivityCommand" />
     </LinearLayout>
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab_add_activity"

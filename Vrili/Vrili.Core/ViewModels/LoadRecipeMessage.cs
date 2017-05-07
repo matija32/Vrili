@@ -2,10 +2,10 @@
 
 namespace Vrili.Core.ViewModels
 {
-    public class ActiveRecipeMessage
+    public class LoadRecipeMessage
         : MvxMessage
     {
-        public ActiveRecipeMessage(object sender, int recipeId)
+        public LoadRecipeMessage(object sender, int recipeId)
             : base(sender)
         {
             RecipeId = recipeId;

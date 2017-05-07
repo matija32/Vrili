@@ -43,13 +43,8 @@ namespace Vrili.Core.ViewModels
 
         private void OpenRecipe(Recipe recipe)
         {
-            PublishActiveRecipe(recipe);
+            _messenger.Publish(new LoadRecipeMessage(this, recipe.Id));
             Close(this);
-        }
-
-        private void PublishActiveRecipe(Recipe recipe)
-        {
-            _messenger.Publish(new ActiveRecipeMessage(this, recipe.Id));
         }
     }
 }

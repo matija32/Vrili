@@ -21,8 +21,8 @@ namespace Vrili.Core.ViewModels
         private readonly ICommand _addActivityCommand;
         public ICommand AddActivityCommand { get { return _addActivityCommand; } }
 
-        private readonly ICommand _startCookingCommand;
-        public ICommand StartCookingCommand { get { return _startCookingCommand; } }
+        private readonly ICommand _startActivityCommand;
+        public ICommand StartActivityCommand { get { return _startActivityCommand; } }
 
         private readonly ICommand _openCommand;
         public ICommand OpenCommand { get { return _openCommand; } }
@@ -62,15 +62,15 @@ namespace Vrili.Core.ViewModels
 
             var isIdle = this.WhenAny(x => x.IsCountingDown, x => !x.Value);
             _addActivityCommand = ReactiveCommand.Create(() => AddActivity(), isIdle);
-            _startCookingCommand = ReactiveCommand.Create(() => StartCooking(), isIdle);
+            _startActivityCommand = ReactiveCommand.Create<CookingActivity>((a) => StartActivity(a));
             _openCommand = ReactiveCommand.Create(() => Open());
             _saveCommand = ReactiveCommand.Create(() => Save());
             _shareCommand = ReactiveCommand.Create(() => Share());
 
-            _token = messenger.SubscribeOnMainThread<ActiveRecipeMessage>(OnActiveRecipeChanged);
+            _token = messenger.SubscribeOnMainThread<LoadRecipeMessage>(OnActiveRecipeChanged);
         }
 
-        private void OnActiveRecipeChanged(ActiveRecipeMessage message)
+        private void OnActiveRecipeChanged(LoadRecipeMessage message)
         {
             LoadRecipe(message.RecipeId);
         }
@@ -123,9 +123,9 @@ namespace Vrili.Core.ViewModels
             Activities.Add(activity);
         }
 
-        private void StartCooking()
+        private void StartActivity(CookingActivity activity)
         {
-            Activities.ToObservable().Subscribe(a => a.CountDown());
-        } 
+            activity.CountDown();
+        }
     }
 }

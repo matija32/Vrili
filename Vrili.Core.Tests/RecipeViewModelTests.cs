@@ -29,7 +29,7 @@ namespace Vrili.Core.Tests
 
         private readonly IFixture _fixture;
         private MockMvxViewDispatcher mockDispatcher;
-        private Action<ActiveRecipeMessage> _publishActiveRecipe;
+        private Action<LoadRecipeMessage> _publishActiveRecipe;
 
         public RecipeViewModelTests()
         {
@@ -58,11 +58,11 @@ namespace Vrili.Core.Tests
         private void SetupPublisherForActiveRecipeMessage()
         {
             messengerMock.Setup(n => n.SubscribeOnMainThread(
-                It.IsAny<Action<ActiveRecipeMessage>>(),
+                It.IsAny<Action<LoadRecipeMessage>>(),
                 It.IsAny<MvxReference>(),
                 It.IsAny<string>()))
                         .Callback<
-                            Action<ActiveRecipeMessage>,
+                            Action<LoadRecipeMessage>,
                             MvxReference,
                             string>(
                                 (action, mvxref, tag) => _publishActiveRecipe = action);
@@ -114,7 +114,7 @@ namespace Vrili.Core.Tests
             Recipe recipe = _fixture.Create<Recipe>();
             recipeRepoMock.Setup(r => r.Get(recipe.Id)).Returns(recipe);
 
-            _publishActiveRecipe(new ActiveRecipeMessage(this, recipe.Id));
+            _publishActiveRecipe(new LoadRecipeMessage(this, recipe.Id));
 
             recipeRepoMock.Verify(r => r.Get(recipe.Id), Times.Exactly(1));
             Assert.AreEqual(recipe.Activities.Count, recipeViewModel.Activities.Count);
