@@ -1,18 +1,12 @@
 ﻿using MvvmCross.Core.ViewModels;
-using MvvmCross.Platform;
 using MvvmCross.Plugins.Messenger;
 using ReactiveUI;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using Vrili.Core.Models;
 using Vrili.Core.Services;
 
 namespace Vrili.Core.ViewModels
-{ 
+{
     public class CookbookViewModel : MvxViewModel
     {
         public MvxObservableCollection<Recipe> RecipeNames { get; private set; }

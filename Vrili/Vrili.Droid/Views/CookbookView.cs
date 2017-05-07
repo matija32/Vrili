@@ -1,8 +1,6 @@
 using Android.App;
 using Android.OS;
-using Android.Views;
 using MvvmCross.Droid.Views;
-using System;
 using Vrili.Core.ViewModels;
 
 namespace Vrili.Droid.Views
