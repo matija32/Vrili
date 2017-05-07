@@ -3,6 +3,7 @@ using SQLite;
 using SQLiteNetExtensions.Attributes;
 using System;
 using System.Linq;
+using System.Reactive.Concurrency;
 using System.Reactive.Linq;
 
 namespace Vrili.Core.Models
@@ -18,6 +19,15 @@ namespace Vrili.Core.Models
         public string Name { get; set; }
         public TimeSpan TotalTime { get; set; }
 
+        private IScheduler _scheduler = Scheduler.Default;
+        public CookingActivity(IScheduler scheduler = null)
+        {
+            if (scheduler != null)
+            {
+                _scheduler = scheduler;
+            }
+        }
+
         private bool _isActive;
         public bool IsActive
         {
@@ -32,10 +42,7 @@ namespace Vrili.Core.Models
             private set { this.RaiseAndSetIfChanged(ref _isTicking, value); }
         }
 
-        
         private TimeSpan _remainingTime;
-
-        [Ignore]
         public TimeSpan RemainingTime
         {
             get { return this._remainingTime; }
@@ -49,7 +56,7 @@ namespace Vrili.Core.Models
 
             var period = TimeSpan.FromMilliseconds(500);
             var ticker = Observable
-                .Interval(period)
+                .Interval(period, _scheduler)
                 .TakeWhile(_ => IsTicking)
                 .Select(_ => RemainingTime - period)
                 .Subscribe(

@@ -64,7 +64,7 @@ namespace Vrili.Core.ViewModels
                   .Subscribe(onNext: t => UpdateRemainingTime(t));
 
             _model.WhenAnyValue(x => x.RemainingTime)
-                  .Subscribe(onNext : t => IsOverdue = t > TimeSpan.Zero);
+                  .Subscribe(onNext : t => IsOverdue = t < TimeSpan.Zero);
 
             var isActive = _model.WhenAnyValue(x => x.IsActive);
             var isNotActive = isActive.Select(x => !x);

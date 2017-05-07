@@ -6,6 +6,7 @@ using Ploeh.AutoFixture;
 using Ploeh.AutoFixture.AutoMoq;
 using System;
 using Microsoft.Reactive.Testing;
+using System.Reactive.Concurrency;
 
 namespace Vrili.Core.Tests
 {
@@ -99,15 +100,17 @@ namespace Vrili.Core.Tests
         [Test]
         public void ActivityOverdue()
         {
-            var activity = _fixture.Build<CookingActivity>()
-                                   .With(a => a.TotalTime, TimeSpan.FromSeconds(5))
-                                   .Create();
+            var scheduler = new TestScheduler();
+
+            var activity = new CookingActivity(scheduler)
+                                {
+                                    TotalTime = TimeSpan.FromSeconds(5)
+                                };
 
             var vm = new CookingActivityViewModel(activity);
 
             vm.StartCommand.Execute(null);
-            var scheduler = new TestScheduler();
-
+            
             scheduler.AdvanceBy(TimeSpan.FromSeconds(2).Ticks);
 
             Assert.IsFalse(vm.IsOverdue);

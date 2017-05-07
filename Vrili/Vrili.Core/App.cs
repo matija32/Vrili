@@ -10,7 +10,7 @@ namespace Vrili.Core
                 .InNamespace("Vrili.Core.Services")
                 .AsInterfaces()
                 .RegisterAsLazySingleton();
-
+            
             RegisterAppStart<ViewModels.RecipeViewModel>();
         }
     }
