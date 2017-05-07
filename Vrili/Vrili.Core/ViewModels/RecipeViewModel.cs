@@ -16,14 +16,20 @@ namespace Vrili.Core.ViewModels
 
     public class RecipeViewModel : MvxViewModel
     {
-        private ReactiveRecipe _recipe;
-        public IReactiveCollection<CookingActivityViewModel> Activities { get; private set; }
+        private Recipe _model;
 
+        private IReactiveCollection<CookingActivityViewModel> _activities;
+        public IReactiveCollection<CookingActivityViewModel> Activities
+        {
+            get { return this._activities; }
+            private set { SetProperty(ref _activities, value); }
+        }
+        
         private readonly ICommand _addActivityCommand;
         public ICommand AddActivityCommand { get { return _addActivityCommand; } }
 
-        private readonly ICommand _startActivityCommand;
-        public ICommand StartActivityCommand { get { return _startActivityCommand; } }
+        private readonly ICommand _resetTimersCommand;
+        public ICommand ResetTimersCommand { get { return _resetTimersCommand; } }
 
         private readonly ICommand _openCommand;
         public ICommand OpenCommand { get { return _openCommand; } }
@@ -38,13 +44,24 @@ namespace Vrili.Core.ViewModels
         private readonly IMvxShareTask _shareTask;
         private readonly IMvxMessenger _messenger;
 
-        private bool _isCountingDown;
         private MvxSubscriptionToken _token;
 
+        private bool _isCountingDown;
         public bool IsCountingDown
         {
             get { return this._isCountingDown; }
-            set { SetProperty(ref _isCountingDown, value); }
+            private set { SetProperty(ref _isCountingDown, value); }
+        }
+
+        private string _name;
+        public string Name
+        {
+            get { return this._name; }
+            private set
+            {
+                SetProperty(ref _name, value);
+                _model.Name = value;
+            }
         }
 
         public RecipeViewModel(
@@ -57,9 +74,9 @@ namespace Vrili.Core.ViewModels
             _messenger = messenger;
 
             var isIdle = this.WhenAny(x => x.IsCountingDown, x => !x.Value);
-            _addActivityCommand = ReactiveCommand.Create(() => AddActivity(), isIdle);
-            _startActivityCommand = ReactiveCommand.Create<CookingActivityViewModel>((a) => ClickOnActivity(a));
+            _addActivityCommand = ReactiveCommand.Create(() => AddActivity());
             _openCommand = ReactiveCommand.Create(() => Open());
+            _resetTimersCommand = ReactiveCommand.Create(() => ResetTimers());
             _saveCommand = ReactiveCommand.Create(() => Save());
             _shareCommand = ReactiveCommand.Create(() => Share());
 
@@ -71,20 +88,26 @@ namespace Vrili.Core.ViewModels
 
         private void OnLoadRecipe(LoadRecipeMessage message)
         {
-            var recipe = _recipeRepo.Get(message.RecipeId);
-            LoadRecipe(recipe);
+            LoadRecipe(_recipeRepo.Get(message.RecipeId));
         }
 
         private void LoadRecipe(Recipe recipe)
         {
-            _recipe = new ReactiveRecipe(recipe);
-            Activities = _recipe.Activities.CreateDerivedCollection(
+            _model = recipe;
+
+            Name = _model.Name;
+            Activities = _model.Activities.CreateDerivedCollection(
                 a => new CookingActivityViewModel(a));
         }
 
         private void Open()
         {
             ShowViewModel<CookbookViewModel>();
+        }
+
+        private void ResetTimers()
+        {
+            throw new NotImplementedException();
         }
 
         public override void Start()
@@ -100,7 +123,7 @@ namespace Vrili.Core.ViewModels
 
         private void Save()
         {
-            _recipeRepo.Save(_recipe.ExtractRecipe());
+            _recipeRepo.Save(_model);
         }
 
         private void AddActivity()
@@ -112,13 +135,8 @@ namespace Vrili.Core.ViewModels
                 TotalTime = TimeSpan.FromSeconds(r)
             };
 
-            _recipe.Activities.Add(activity);
+            _model.Activities.Add(activity);
             
-        }
-
-        private void ClickOnActivity(CookingActivityViewModel activity)
-        {
-            activity.StartCommand.Execute(null);
         }
     }
 }

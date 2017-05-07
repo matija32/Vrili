@@ -69,7 +69,6 @@ namespace Vrili.Core.Tests
                 Times.Exactly(1));
 
             mockDispatcher.AssertClosed<CookbookViewModel>();
-
         }
 
         private Expression<Func<LoadRecipeMessage, bool>> MessageWith(int recipeId)

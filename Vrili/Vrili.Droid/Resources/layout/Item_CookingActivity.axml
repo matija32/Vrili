@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="left|center"
-        local:MvxBind="Text Name"
+        local:MvxBind="Text Name; Click StartCommand"
         android:layout_weight="1"
         android:maxLines="2" />
     <TextView
@@ -18,6 +18,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="right"
         android:gravity="right|center"
-        local:MvxBind="Text RemainingTime"
+        local:MvxBind="Text RemainingTime; Click StartCommand"
         android:layout_weight="1" />
 </LinearLayout>

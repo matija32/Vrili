@@ -11,14 +11,14 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Recipe name" />
+            local:MvxBind="Text Name" />
         <Mvx.MvxListView
             android:scrollbars="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20dp"
             local:MvxItemTemplate="@layout/item_cookingactivity"
-            local:MvxBind="ItemsSource Activities; ItemClick StartActivityCommand" />
+            local:MvxBind="ItemsSource Activities" />
     </LinearLayout>
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab_add_activity"

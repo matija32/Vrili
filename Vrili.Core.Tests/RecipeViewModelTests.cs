@@ -48,7 +48,7 @@ namespace Vrili.Core.Tests
             SetupPublisherForActiveRecipeMessage();
 
             recipeViewModel = _fixture.Create<RecipeViewModel>();
-
+                                
             mockDispatcher = new MockMvxViewDispatcher();
             Ioc.RegisterSingleton<IMvxViewDispatcher>(mockDispatcher);
             Ioc.RegisterSingleton<MvxMainThreadDispatcher>(mockDispatcher);
@@ -77,7 +77,7 @@ namespace Vrili.Core.Tests
                 recipeViewModel.AddActivityCommand.Execute(null);
             }
 
-            Assert.AreEqual(recipeViewModel.Activities.Count(), numberOfActivities);
+            Assert.AreEqual(numberOfActivities, recipeViewModel.Activities.Count());
         }
 
         [Test]
@@ -117,7 +117,14 @@ namespace Vrili.Core.Tests
 
             recipeRepoMock.Verify(r => r.Get(recipe.Id), Times.Exactly(1));
             Assert.AreEqual(recipe.Activities.Count, recipeViewModel.Activities.Count());
-
         }
+
+        [Test]
+        public void ShowingDefaultsForFirstRecipe()
+        {
+            StringAssert.Contains("Stampot", recipeViewModel.Name);
+        }
+
+
     }
 }

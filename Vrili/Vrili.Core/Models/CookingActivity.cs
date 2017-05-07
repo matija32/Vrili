@@ -31,6 +31,8 @@ namespace Vrili.Core.Models
         }
         
         private TimeSpan _remainingTime;
+
+        [Ignore]
         public TimeSpan RemainingTime
         {
             get { return this._remainingTime; }
@@ -50,6 +52,21 @@ namespace Vrili.Core.Models
                     onNext: newTime => RemainingTime = newTime,
                     onCompleted: () => RemainingTime = TimeSpan.Zero
                 );
+        }
+
+        internal void Pause()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void Stop()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void Reset()
+        {
+            throw new NotImplementedException();
         }
     }
 }
