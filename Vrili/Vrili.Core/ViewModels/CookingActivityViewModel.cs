@@ -33,14 +33,21 @@ namespace Vrili.Core.ViewModels
         public bool IsCountingDown
         {
             get { return this._isCountingDown; }
-            set { SetProperty(ref _isCountingDown, value); }
+            private set { SetProperty(ref _isCountingDown, value); }
+        }
+
+        private bool _isOverdue;
+        public bool IsOverdue
+        {
+            get { return this._isOverdue; }
+            private set { SetProperty(ref _isOverdue, value); }
         }
 
         private string _remainingTime;
         public string RemainingTime
         {
             get { return this._remainingTime; }
-            set { SetProperty(ref _remainingTime, value); }
+            private set { SetProperty(ref _remainingTime, value); }
         }
 
         public string Name
@@ -54,19 +61,37 @@ namespace Vrili.Core.ViewModels
             _model = activity;
             
             _model.WhenAnyValue(x => x.RemainingTime)
-                  .Subscribe(onNext: t => this.RemainingTime = t.ToString(@"mm\:ss"));
+                  .Subscribe(onNext: t => UpdateRemainingTime(t));
 
-            var isIdle = _model.IsOngoing.Select(x => !x);
-            var isTicking = _model.IsOngoing;
-            _startCommand = ReactiveCommand.Create(() => StartCooking(), isIdle);
-            _pauseCommand = ReactiveCommand.Create(() => PauseCooking());
-            _stopCommand = ReactiveCommand.Create(() => StopCooking());
-            _resetCommand = ReactiveCommand.Create(() => StopCooking());
+            _model.WhenAnyValue(x => x.RemainingTime)
+                  .Subscribe(onNext : t => IsOverdue = t > TimeSpan.Zero);
+
+            var isActive = _model.WhenAnyValue(x => x.IsActive);
+            var isNotActive = isActive.Select(x => !x);
+
+            var isTicking = _model.WhenAnyValue(x => x.IsActive);
+            var isNotTicking = isTicking.Select(x => !x);
+
+            _startCommand = ReactiveCommand.Create(() => StartCooking(), isNotTicking);
+            _pauseCommand = ReactiveCommand.Create(() => PauseCooking(), isTicking);
+            _stopCommand = ReactiveCommand.Create(() => FinishCooking());
+            _resetCommand = ReactiveCommand.Create(() => FinishCooking());
+
+            isTicking.CombineLatest(isActive, (a, b) => a && b)
+                .Subscribe(onNext : value => IsCountingDown = value);
+
+            ResetTimer();
+
+        }
+
+        private void UpdateRemainingTime(TimeSpan t)
+        {
+            this.RemainingTime = (t < TimeSpan.Zero ? "-" : "") + t.ToString(@"mm\:ss");
         }
 
         private void StartCooking()
         {
-            _model.CountDown();
+            _model.Start();
         }
 
         private void PauseCooking()
@@ -74,14 +99,14 @@ namespace Vrili.Core.ViewModels
             _model.Pause();
         }
 
-        private void StopCooking()
+        private void FinishCooking()
         {
-            _model.Stop();
+            _model.Finish();
         }
 
         private void ResetTimer()
         {
-            _model.Reset();
+            _model.ResetClock();
         }
 
     }

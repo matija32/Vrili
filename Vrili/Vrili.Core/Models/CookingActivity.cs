@@ -18,17 +18,20 @@ namespace Vrili.Core.Models
         public string Name { get; set; }
         public TimeSpan TotalTime { get; set; }
 
-        [Ignore]
-        public IObservable<bool> IsOngoing { get; private set; }
-
-        public CookingActivity()
+        private bool _isActive;
+        public bool IsActive
         {
-            IsOngoing = this
-                .WhenAnyValue(x => x.RemainingTime)
-                .Select(time => time > TimeSpan.Zero);
-        
-            RemainingTime = TimeSpan.Zero;
+            get { return this._isActive; }
+            private set { this.RaiseAndSetIfChanged(ref _isActive, value); }
         }
+
+        private bool _isTicking;
+        public bool IsTicking
+        {
+            get { return this._isTicking; }
+            private set { this.RaiseAndSetIfChanged(ref _isTicking, value); }
+        }
+
         
         private TimeSpan _remainingTime;
 
@@ -39,34 +42,35 @@ namespace Vrili.Core.Models
             private set { this.RaiseAndSetIfChanged(ref _remainingTime, value); }
         }
 
-        public void CountDown()
+        public void Start()
         {
-            RemainingTime = TotalTime;
-            var period = TimeSpan.FromMilliseconds(100);
+            IsActive = true;
+            IsTicking = true;
 
+            var period = TimeSpan.FromMilliseconds(500);
             var ticker = Observable
                 .Interval(period)
+                .TakeWhile(_ => IsTicking)
                 .Select(_ => RemainingTime - period)
-                .TakeWhile(newTime => newTime > TimeSpan.Zero)
                 .Subscribe(
-                    onNext: newTime => RemainingTime = newTime,
-                    onCompleted: () => RemainingTime = TimeSpan.Zero
+                    onNext: newTime => RemainingTime = newTime
                 );
         }
 
-        internal void Pause()
+        public void Pause()
         {
-            throw new NotImplementedException();
+            IsActive = false;
         }
 
-        internal void Stop()
+        public void Finish()
         {
-            throw new NotImplementedException();
+            Pause();
+            ResetClock();
         }
 
-        internal void Reset()
+        public void ResetClock()
         {
-            throw new NotImplementedException();
+            RemainingTime = TotalTime;
         }
     }
 }
