@@ -1,13 +1,4 @@
-﻿// <copyright file="MockMvxViewDispatcher.cs" company="Cirrious">
-// (c) Copyright Cirrious. http://www.cirrious.com
-// This source is subject to the Microsoft Public License (Ms-PL)
-// Please see license.txt on http://opensource.org/licenses/ms-pl.html
-// All other rights reserved.
-// </copyright>
-//  
-// Project Lead - Stuart Lodge, Cirrious. http://www.cirrious.com - Hire me - I'm worth it!
-
-using MvvmCross.Core.ViewModels;
+﻿using MvvmCross.Core.ViewModels;
 using MvvmCross.Core.Views;
 using MvvmCross.Platform.Core;
 using NUnit.Framework;
@@ -29,7 +20,12 @@ namespace Vrili.Core.Test.Mocks
 
         public bool ChangePresentation(MvxPresentationHint hint)
         {
-            throw new NotImplementedException();
+            if (hint.GetType() == typeof(MvxClosePresentationHint))
+            {
+                CloseRequests.Add((hint as MvxClosePresentationHint).ViewModelToClose);
+            }
+
+            return true;
         }
 
         public bool RequestMainThreadAction(Action action)
@@ -42,6 +38,12 @@ namespace Vrili.Core.Test.Mocks
         {
             Assert.AreEqual(1, NavigateRequests.Count);
             Assert.AreEqual(typeof(ViewModelType), NavigateRequests[0].ViewModelType);
+        }
+
+        public void AssertClosed<ViewModelType>()
+        {
+            Assert.AreEqual(1, CloseRequests.Count);
+            Assert.AreEqual(typeof(ViewModelType), CloseRequests[0].GetType());
         }
     }
 }

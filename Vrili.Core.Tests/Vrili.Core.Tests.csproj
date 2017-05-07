@@ -146,6 +146,7 @@
     <Compile Include="Bootstrap\MessengerPluginBootstrap.cs" />
     <Compile Include="Bootstrap\SharePluginBootstrap.cs" />
     <Compile Include="Mocks\MockMvxViewDispatcher.cs" />
+    <Compile Include="CookbookViewModelTests.cs" />
     <Compile Include="RecipeViewModelTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

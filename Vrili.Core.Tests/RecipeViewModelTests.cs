@@ -27,19 +27,17 @@ namespace Vrili.Core.Tests
 
         private RecipeViewModel recipeViewModel;
 
-        private readonly IFixture _fixture;
+        private IFixture _fixture;
         private MockMvxViewDispatcher mockDispatcher;
         private Action<LoadRecipeMessage> _publishActiveRecipe;
 
-        public RecipeViewModelTests()
-        {
-            _fixture = new Fixture().Customize(new AutoMoqCustomization());
-        }
 
         [SetUp]
         public void SetUp()
         {
             ClearAll();
+
+            _fixture = new Fixture().Customize(new AutoMoqCustomization());
 
             alarmBellMock = _fixture.Freeze<Mock<IAlarmBell>>();
             recipeRepoMock = _fixture.Freeze<Mock<IRecipeRepo>>();
@@ -109,7 +107,7 @@ namespace Vrili.Core.Tests
         }
 
         [Test]
-        public void LoadingActiveRecipe()
+        public void LoadingRecipe()
         {
             Recipe recipe = _fixture.Create<Recipe>();
             recipeRepoMock.Setup(r => r.Get(recipe.Id)).Returns(recipe);
