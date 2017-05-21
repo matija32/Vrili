@@ -17,23 +17,18 @@ namespace Vrili.Droid.Views
     [Activity(Label = "Recipe", LaunchMode = LaunchMode.SingleTop)]
     public class RecipeView : MvxActivity<RecipeViewModel>
     {
-        [BroadcastReceiver(Enabled = true, Exported = true)]
-        [IntentFilter(new string[] { "Vrili.RecipeView.AddActivity" })]
-        public class MyBroadcastReceiver : BroadcastReceiver
-        {
-            public RecipeViewModel viewModel;
-
-            public MyBroadcastReceiver() { }
-
-            public override void OnReceive(Context context, Intent intent)
-            {
-                viewModel.AddActivityCommand.Execute(null);
-            }
-        }
 
         protected override void OnNewIntent(Intent intent)
         {
             base.OnNewIntent(intent);
+            int count = intent.Extras.KeySet().Count;
+
+            foreach(string s in intent.Extras.KeySet())
+            {
+                var x = intent.Extras.Get(s);
+                x.ToString();
+            }
+
             ViewModel.AddActivityCommand.Execute(null);
 
         }
@@ -42,33 +37,39 @@ namespace Vrili.Droid.Views
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.RecipeView);
-            var r = new MyBroadcastReceiver();
-            r.viewModel = ViewModel;
-            RegisterReceiver(r, new IntentFilter("Vrili.RecipeView.AddActivity"));
-
 
             var request = MvxViewModelRequest<RecipeViewModel>.GetDefaultRequest();
             var translator = Mvx.Resolve<IMvxAndroidViewModelRequestTranslator>();
-            request.PresentationValues = new Dictionary<string, string>() {
-               { "life", "42" }
-            };
 
             var intent = translator.GetIntentFor(request);
+            intent.PutExtra("life34", "halflife");
+
 
             var pending = PendingIntent.GetActivity(
-                this.ApplicationContext, 0, intent, 0);
+                this, 0, intent, 0);
 
-
-            Notification.Action alarm_action = 
+            Notification.Action alarm_action =
                 new Notification.Action(Resource.Drawable.ic_add, "Silence alarm", pending);
 
+            var request2 = MvxViewModelRequest<RecipeViewModel>.GetDefaultRequest();
+            var intent2 = translator.GetIntentFor(request2);
+            intent2.PutExtra("life-in-another-intent", "counter-strike");
+
+
+            var pending2 = PendingIntent.GetActivity(
+                this, 1, intent2, 0);
+
+            Notification.Action action2 =
+                new Notification.Action(Resource.Drawable.ic_save, "Extend", pending2);
+            
             Notification.Builder builder =
                 new Notification.Builder(this.ApplicationContext)
                 .SetSmallIcon(Resource.Drawable.ic_pause)
                 .SetContentTitle("My notification")
                 .SetContentText("Hello World!")
                 .AddAction(alarm_action)
-                .SetContentIntent(pending)
+                .AddAction(action2)
+//                .SetContentIntent(pending2)
 //                .SetAutoCancel(true) // clears the notification on click
                 .SetVisibility(NotificationVisibility.Public); // makes the notification visible on lock screen
 
